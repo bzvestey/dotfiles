@@ -89,13 +89,13 @@ source $ZSH/oh-my-zsh.sh
 ###############################################################################
 
 # Auto Suggestions
-source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+#source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # Completions
 fpath=(/usr/local/share/zsh-completions $fpath)
 
 # Git Prompt
-source "/usr/local/opt/zsh-git-prompt/zshrc.sh"
+# source "/usr/local/opt/zsh-git-prompt/zshrc.sh"
 
 # Syntax Highlighting
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
