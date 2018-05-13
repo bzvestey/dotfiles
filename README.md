@@ -18,3 +18,8 @@ export ZSH=/home/bzvestey/.oh-my-zsh
 # Path to my .zshrc file
 source ~/.mydotfiles/zsh/zshrc-linux.zsh
 ```
+
+## net
+* firewall.sh will turn on UFW rules for forcing everything through the VPN
+* unfirewall.sh will set sane defaults that do not require the firewall
+* resolv.conf is a couple of sane DNS servers if you are worried about DNS leaks
