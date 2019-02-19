@@ -1,0 +1,76 @@
+" ##############################################################################
+" #  Bryan Vestey's .vimrc file                                                #
+" #  Use at your own risk :P                                                   #
+" ##############################################################################
+
+" ##############################################################################
+" # General Settings Configuration                                             #
+" ##############################################################################
+
+" General
+set number	      " Show line numbers
+set linebreak	    " Break lines at word (requires Wrap lines)
+set showbreak=+++ " Wrap-broken line prefix
+set textwidth=100 " Line wrap (number of cols)
+set showmatch	    " Highlight matching brace
+set spell	        " Enable spell-checking
+set visualbell	  " Use visual bell (no beeping)
+set showcmd       " Show me what I am typing
+set showmode      " Show the current mode
+
+set noswapfile      " Don't use swap file
+set nobackup        " Don't create backup files
+set nowritebackup
+set splitright      " Split vertical windows to the right
+set splitbelow      " Split horizontal windows to the bottom
+set encoding=utf-8  " Set default encoding to UTF-8
+set autowrite       " Automatically save before :next and :make etc.
+set autoread        " Automatically reread changed files without asking me
+set laststatus=2
+set hidden
+
+set hlsearch	    " Highlight all search results
+set smartcase	    " Enable smart-case search
+set ignorecase	  " Always case-insensitive
+set incsearch	    " Searches for strings incrementally
+
+set autoindent	  " Auto-indent new lines
+set expandtab	    " Use spaces instead of tabs
+set shiftwidth=2  " Number of auto-indent spaces
+set smartindent	  " Enable smart-indent
+set smarttab	    " Enable smart-tabs
+set softtabstop=2 " Number of spaces per Tab
+set ts=2          " Number of spaces per tab when opening a file
+
+set backspace=indent,eol,start " Makes backspace more powerful
+
+set confirm	        " Show a Prompt confirmation dialog
+set ruler	          " Show row and column ruler information
+
+set undolevels=1000	            " Number of undo levels
+set backspace=indent,eol,start	" Backspace behaviour
+
+" open help vertically
+command! -nargs=* -complete=help Help vertical belowright help <args>
+autocmd FileType help wincmd L
+
+" Setting for use with plugins
+filetype plugin indent on " Needed to make plugins work properly
+
+" ##############################################################################
+" # Key Binding Changes                                                        #
+" ##############################################################################
+
+" TODO:  Add custom key bindings here!
+
+" ##############################################################################
+" # Plugin Settings                                                            #
+" ##############################################################################
+
+" solarized8 theme
+set background=dark
+colorscheme solarized8
+
+" vim-airline
+let g:airline_theme='solarized'
+
