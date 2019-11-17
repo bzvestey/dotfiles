@@ -7,6 +7,11 @@
 " # General Settings Configuration                                             #
 " ##############################################################################
 
+" set the leader to space
+nnoremap ; :
+nnoremap <space> <Nop>
+let mapleader = " "
+
 " General
 set number	      " Show line numbers
 set linebreak	    " Break lines at word (requires Wrap lines)
@@ -46,9 +51,9 @@ set backspace=indent,eol,start " Makes backspace more powerful
 
 set confirm	        " Show a Prompt confirmation dialog
 set ruler	          " Show row and column ruler information
+set cc=81           " Colors the 81st column a different color
 
 set undolevels=1000	            " Number of undo levels
-set backspace=indent,eol,start	" Backspace behaviour
 
 " open help vertically
 command! -nargs=* -complete=help Help vertical belowright help <args>
@@ -73,4 +78,18 @@ colorscheme solarized8
 
 " vim-airline
 let g:airline_theme='solarized'
+
+" vim-go
+let g:go_fmt_command = "goimports"
+autocmd BufWritePre *.go :GoBuild
+
+" vim-tmux-navigator
+let g:tmux_navigator_disable_when_zoomed = 1 " disable navigate away zoom
+
+" easy access to vimux commands
+map <Leader>vp :VimuxPromptCommand<CR>
+map <Leader>vl :VimuxRunLastCommand<CR>
+
+" open autocomplete
+map <C-Space> <C-x><C-o>
 
