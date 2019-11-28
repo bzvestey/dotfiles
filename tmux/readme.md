@@ -1,6 +1,6 @@
 # Tmux Configuration
 
 ```sh
-ln -s ${HOME}/dev/dotfiles/tmux/tmux.conf ${HOME}/.tmux.config
+ln -s ${HOME}/.mydotfiles/tmux/tmux.conf ${HOME}/.tmux.config
 ```
 
