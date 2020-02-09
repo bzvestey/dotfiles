@@ -6,7 +6,7 @@ This is configured expecting that you will be using Vim version 8 or newer
 
 Make sure that you have your .vimrc file symlinked so that you get the correct configuration.
 ```sh
-ln -s ${HOME}/dev/dotfiles/vim/vimrc ${HOME}/.vimrc
+ln -s ${HOME}/.mydotfiles/vim/vimrc ${HOME}/.vimrc
 ```
 
 ## Theming
@@ -63,7 +63,7 @@ git clone https://github.com/vim-airline/vim-airline-themes ~/.vim/pack/plugins/
 
 Add support for connecting navigation between tmux and vim
 ```sh
-git clone https://github.com/christoomey/vim-tmux-navigator.git
+git clone https://github.com/christoomey/vim-tmux-navigator.git ~/.vim/pack/plugins/start/vim-tmux-navigator
 ```
 
 ### vimux
@@ -71,7 +71,7 @@ git clone https://github.com/christoomey/vim-tmux-navigator.git
 Lets vim interact with tmux
 
 ```sh
-git clone https://github.com/benmills/vimux.git  ~/.vim/pack/plugins/start/vimux
+git clone https://github.com/benmills/vimux.git ~/.vim/pack/plugins/start/vimux
 ```
 
 ### ctrlp
@@ -79,7 +79,7 @@ git clone https://github.com/benmills/vimux.git  ~/.vim/pack/plugins/start/vimux
 Gives Ctrl-p command to vim
 
 ```sh
-git clone https://github.com/ctrlpvim/ctrlp.vim.git  ~/.vim/pack/plugins/start/ctrlp.vim
+git clone https://github.com/ctrlpvim/ctrlp.vim.git ~/.vim/pack/plugins/start/ctrlp.vim
 ```
 
 ## Finishing up
