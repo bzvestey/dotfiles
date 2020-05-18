@@ -37,6 +37,7 @@ Massive plugin of languages
 
 ```sh
 git clone https://github.com/sheerun/vim-polyglot ~/.vim/pack/plugins/start/vim-polyglot
+cd  ~/.vim/pack/plugins/start/vim-polyglot
 git checkout v4.2.1 # At the time of writing v4.2.1 was the latest.
 ```
 
