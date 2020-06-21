@@ -62,6 +62,10 @@ autocmd FileType help wincmd L
 " Setting for use with plugins
 filetype plugin indent on " Needed to make plugins work properly
 
+" Understanding that a svelte file is basically HTML, this is only needed when
+" not using the vim-svelte plugin
+" au! BufNewFile,BufRead *.svelte set ft=html
+
 " ##############################################################################
 " # Key Binding Changes                                                        #
 " ##############################################################################
