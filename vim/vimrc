@@ -4,6 +4,33 @@
 " ##############################################################################
 
 " ##############################################################################
+" # Setup Vundle and list the plugins used                                     #
+" ##############################################################################
+
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+
+Plugin 'sheerun/vim-polyglot'
+Plugin 'fatih/vim-go.git'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'benmills/vimux'
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'ycm-core/YouCompleteMe'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+
+" ##############################################################################
 " # General Settings Configuration                                             #
 " ##############################################################################
 
@@ -59,6 +86,9 @@ set undolevels=1000	            " Number of undo levels
 command! -nargs=* -complete=help Help vertical belowright help <args>
 autocmd FileType help wincmd L
 
+" Syntax Highlighting
+syntax on
+
 " Setting for use with plugins
 filetype plugin indent on " Needed to make plugins work properly
 
@@ -93,7 +123,4 @@ let g:tmux_navigator_disable_when_zoomed = 1 " disable navigate away zoom
 " easy access to vimux commands
 map <Leader>vp :VimuxPromptCommand<CR>
 map <Leader>vl :VimuxRunLastCommand<CR>
-
-" open autocomplete
-map <C-Space> <C-x><C-o>
 

@@ -26,61 +26,43 @@ git clone https://github.com/lifepillar/vim-solarized8.git ~/.vim/pack/themes/op
 
 ## Plugins
 
-You need to create the plugins folder first
+First things first, you need to install Vundle to help with handling the
+plugins.
+
 ```sh
-mkdir -p ~/.vim/pack/plugins/start
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vi
 ```
 
 ### vim-polyglot
 
 Massive plugin of languages
 
-```sh
-git clone https://github.com/sheerun/vim-polyglot ~/.vim/pack/plugins/start/vim-polyglot
-cd  ~/.vim/pack/plugins/start/vim-polyglot
-git checkout v4.2.1 # At the time of writing v4.2.1 was the latest.
-```
-
 ### vim-go
 
 For Go Lang support you need to pull down the vim go repo, and then check out the correct version
-
-```sh
-git clone https://github.com/fatih/vim-go.git ~/.vim/pack/plugins/start/vim-go
-cd ~/.vim/pack/plugins/start/vim-go
-git checkout v1.22 # At the time of writing v1.22 was the latest.
-```
 
 ### vim-airline
 
 To have a nice status bar at the bottom
 
-```sh
-git clone https://github.com/vim-airline/vim-airline ~/.vim/pack/plugins/start/vim-airline
-git clone https://github.com/vim-airline/vim-airline-themes ~/.vim/pack/plugins/start/vim-airline-themes
-```
-
 ### vim-tmux-navigator
 
 Add support for connecting navigation between tmux and vim
-```sh
-git clone https://github.com/christoomey/vim-tmux-navigator.git ~/.vim/pack/plugins/start/vim-tmux-navigator
-```
 
 ### vimux
 
 Lets vim interact with tmux
 
-```sh
-git clone https://github.com/benmills/vimux.git ~/.vim/pack/plugins/start/vimux
-```
-
 ### ctrlp
 
 Gives Ctrl-p command to vim
 
+### YouCompleteMe
+
+Good autocomplete support.  Requires an additional install step found
+[here](https://github.com/ycm-core/YouCompleteMe#installation).
+
 ```sh
-git clone https://github.com/ctrlpvim/ctrlp.vim.git ~/.vim/pack/plugins/start/ctrlp.vim
 ```
 
 ## Finishing up
