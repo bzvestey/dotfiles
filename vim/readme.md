@@ -30,7 +30,7 @@ First things first, you need to install Vundle to help with handling the
 plugins.
 
 ```sh
-git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vi
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 ```
 
 ### vim-polyglot
@@ -40,6 +40,11 @@ Massive plugin of languages
 ### vim-go
 
 For Go Lang support you need to pull down the vim go repo, and then check out the correct version
+
+To setup the dependencies of vim-go run the following inside of vim:
+```
+:GoInstallBinaries
+```
 
 ### vim-airline
 

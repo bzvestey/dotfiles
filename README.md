@@ -6,6 +6,12 @@ might be OS specific, or only when I decide to use specific programs (bash/zsh).
 * Clone this to ~/dev/dotfile
 * symlink it to ~/.mydotfiles
 
+## Packages
+
+```sh
+pacman -S vim tmux git go cmake nodejs npm python base-devel
+```
+
 ## zsh
 * Download zsh
 * Download [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)
