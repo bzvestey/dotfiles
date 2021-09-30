@@ -9,24 +9,42 @@
 
 call plug#begin()
 
+" For handling code highliting and knowing the current location information
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} " Quality code parsing
 Plug 'JoosepAlviste/nvim-ts-context-commentstring' " Figuring out comment style
+
+" For auto-complete
 Plug 'neovim/nvim-lspconfig' " LSP support
-Plug 'nvim-lua/completion-nvim' " auto-complete
-Plug 'nvim-treesitter/completion-treesitter' " Treesitter based completion options
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/nvim-cmp'
 
-Plug 'lifepillar/vim-solarized8' " Theme
+" For Snippets.
+Plug 'hrsh7th/cmp-vsnip'
+Plug 'hrsh7th/vim-vsnip'
 
-" Plug 'sheerun/vim-polyglot'
-" Plug 'fatih/vim-go.git'
+" Theme
+Plug 'lifepillar/vim-solarized8'
+
+" Status bar at the bottom
 Plug 'vim-airline/vim-airline' " Bottom Bar with information
 Plug 'vim-airline/vim-airline-themes' " Theme the bottom bar
-Plug 'christoomey/vim-tmux-navigator' " Combine navigation with tmux panes
-Plug 'benmills/vimux' " Tmux intergration
-Plug 'ctrlpvim/ctrlp.vim' " CTRL+P for Vim
-" Plugin 'ycm-core/YouCompleteMe'
-Plug 'tpope/vim-commentary' " Comments
-Plug 'sbdchd/neoformat' " Code formatting
+
+" Tmux integration
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'benmills/vimux'
+
+" CTRL+P for Vim
+Plug 'ctrlpvim/ctrlp.vim'
+
+" Comments
+Plug 'tpope/vim-commentary'
+
+" Code Formatting
+Plug 'sbdchd/neoformat'
+
+" More go support
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 call plug#end()
 
@@ -136,6 +154,9 @@ autocmd BufWritePre,InsertLeave *.svelte Neoformat
 map <Leader>vp :VimuxPromptCommand<CR>
 map <Leader>vl :VimuxRunLastCommand<CR>
 
+" nvim-cmp settings
+set completeopt=menu,menuone,noselect
+
 " Lua based settings
 lua << EOF
 -- Treesitter settings
@@ -149,36 +170,60 @@ require'nvim-treesitter.configs'.setup {
   }
 }
 
+-- Setup nvim-cmp.
+local cmp = require'cmp'
+cmp.setup({
+  snippet = {
+    expand = function(args)
+      -- For `vsnip` user.
+      vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` user.
+
+      -- For `luasnip` user.
+      -- require('luasnip').lsp_expand(args.body)
+
+      -- For `ultisnips` user.
+      -- vim.fn["UltiSnips#Anon"](args.body)
+    end,
+  },
+  mapping = {
+    ['<C-d>'] = cmp.mapping.scroll_docs(-4),
+    ['<C-f>'] = cmp.mapping.scroll_docs(4),
+    ['<C-Space>'] = cmp.mapping.complete(),
+    ['<C-e>'] = cmp.mapping.close(),
+    ['<CR>'] = cmp.mapping.confirm({ select = true }),
+  },
+  sources = {
+    { name = 'nvim_lsp' },
+
+    -- For vsnip user.
+    { name = 'vsnip' },
+
+    -- For luasnip user.
+    -- { name = 'luasnip' },
+
+    -- For ultisnips user.
+    -- { name = 'ultisnips' },
+
+    { name = 'buffer' },
+  }
+})
+
 -- Setup language servers
-require'lspconfig'.bashls.setup{}
-require'lspconfig'.gopls.setup{}
-require'lspconfig'.graphql.setup{}
+local cmp_capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities());
+require'lspconfig'.bashls.setup{ capabilities = cmp_capabilities; }
+require'lspconfig'.gopls.setup{ capabilities = cmp_capabilities; }
+require'lspconfig'.graphql.setup{ capabilities = cmp_capabilities; }
 require'lspconfig'.sqlls.setup{
   cmd = {"/usr/local/bin/sql-language-server", "up", "--method", "stdio"};
+  capabilities = cmp_capabilities;
 }
-require'lspconfig'.svelte.setup{}
-require'lspconfig'.tsserver.setup{}
-require'lspconfig'.vimls.setup{}
-require'lspconfig'.yamlls.setup{}
+require'lspconfig'.svelte.setup{ capabilities = cmp_capabilities; }
+require'lspconfig'.terraformls.setup{ capabilities = cmp_capabilities; }
+require'lspconfig'.tsserver.setup{ capabilities = cmp_capabilities; }
+require'lspconfig'.vimls.setup{ capabilities = cmp_capabilities; }
+require'lspconfig'.yamlls.setup{ capabilities = cmp_capabilities; }
 require'lspconfig'.zeta_note.setup{
-  cmd = {'path/to/zeta-note'}
+  cmd = {'~/bin/zeta-note'};
+  capabilities = cmp_capabilities;
 }
 EOF
-
-" Use completion-nvim in every buffer
-inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-set completeopt=menuone,noinsert,noselect
-set shortmess+=c
-" let g:completion_chain_complete_list = {
-" 			\'default' : {
-" 			\	'default' : [
-" 			\		{'complete_items' : ['lsp', 'ts', 'snippet']},
-" 			\		{'mode' : 'file'}
-" 			\	],
-" 			\	'comment' : [],
-" 			\	'string' : []
-" 			\	}
-"       \}
-autocmd BufEnter * lua require'completion'.on_attach()
-
