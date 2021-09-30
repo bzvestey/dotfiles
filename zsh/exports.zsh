@@ -12,3 +12,19 @@ go_test() {
 ## user bin Exports                                                          ##
 ###############################################################################
 export PATH=$PATH:$HOME/bin
+
+###############
+## alias's
+##############
+
+# Kubernetes log with follow and tail of 10
+alias kubel10='kubectl logs -f --tail 10'
+
+alias kubedp='kubectl delete pod'
+
+alias kubegp='kubectl get pod'
+
+alias kubegd='kubectl get deployment'
+
+alias kubegs='kubectl get service'
+
