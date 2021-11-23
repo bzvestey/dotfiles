@@ -52,7 +52,11 @@ chmod u+x ~/bin/zeta-note
 # Terraform Support
 ###################
 
-# Linux, check to docs based on platform (https://github.com/hashicorp/terraform-ls#installation)
+# Linux, check for newer versions
+cd ~/bin
+curl -o ./terraform-ls.zip https://releases.hashicorp.com/terraform-ls/0.24.0/terraform-ls_0.24.0_linux_amd64.zip
+unzip terraform-ls.zip
+rm terraform-ls.zip
 
 # MacOS
 brew install hashicorp/tap/terraform-ls
