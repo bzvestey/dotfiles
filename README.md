@@ -12,6 +12,11 @@ might be OS specific, or only when I decide to use specific programs (bash/zsh).
 pacman -S vim tmux git go cmake nodejs npm python base-devel
 ```
 
+- Docker
+- Terraform
+- Dagger
+- Kind (Local Kubernetes)
+
 ## zsh
 * Download zsh
 * Download [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)

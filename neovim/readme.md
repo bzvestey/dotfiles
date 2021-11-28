@@ -41,26 +41,26 @@ npm install -g graphql-language-service-cli sql-language-server svelte-language-
 ##################
 
 # Linux/WSL (version is in the URL)
-curl -o ~/bin/zeta-note --create-dirs -L https://github.com/artempyanykh/zeta-note/releases/download/2021-08-22/zeta-note-linux
+curl -o ~/.local/bin/zeta-note --create-dirs -L https://github.com/artempyanykh/zeta-note/releases/download/2021-08-22/zeta-note-linux
 
 # MacOS (version is in the URL)
 curl -o ~/bin/zeta-note --create-dirs -L https://github.com/artempyanykh/zeta-note/releases/download/2021-08-22/zeta-note-macos
 
 # Set Permissions
-chmod u+x ~/bin/zeta-note
+chmod u+x ~/.local/bin/zeta-note
 
 # Terraform Support
 ###################
 
 # Linux, check for newer versions
-cd ~/bin
 curl -o ./terraform-ls.zip https://releases.hashicorp.com/terraform-ls/0.24.0/terraform-ls_0.24.0_linux_amd64.zip
-unzip terraform-ls.zip
+unzip terraform-ls.zip -d ~/.local/bin/
 rm terraform-ls.zip
 
 # MacOS
 brew install hashicorp/tap/terraform-ls
 ```
+
 - [cmp-nvim-lsp](https://github.com/hrsh7th/cmp-nvim-lsp): LSP support for auto-complete.
 - [cmp-buffer](https://github.com/hrsh7th/cmp-buffer): Buffers for auto-complete.
 - [nvim-cmp](https://github.com/hrsh7th/nvim-cmp): Auto-Complete.

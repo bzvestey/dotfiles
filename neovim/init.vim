@@ -167,6 +167,10 @@ require'nvim-treesitter.configs'.setup {
     config = {
       go = '// %s'
     }
+  },
+  highlight = {
+    enable = true,
+    additional_vim_regex_highlighting = false,
   }
 }
 
@@ -223,7 +227,7 @@ require'lspconfig'.tsserver.setup{ capabilities = cmp_capabilities; }
 require'lspconfig'.vimls.setup{ capabilities = cmp_capabilities; }
 require'lspconfig'.yamlls.setup{ capabilities = cmp_capabilities; }
 require'lspconfig'.zeta_note.setup{
-  cmd = {'~/bin/zeta-note'};
+  cmd = {'~/.local/bin/zeta-note'};
   capabilities = cmp_capabilities;
 }
 EOF
