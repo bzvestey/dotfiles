@@ -2,6 +2,33 @@
 These are the random dot or settings files I use on \*nix based devices.  Some
 might be OS specific, or only when I decide to use specific programs (bash/zsh).
 
+## Setup ssh-agent
+
+Create `~/.config/systemd/user/ssh-agent.service` with the following content.
+```
+[Unit]
+Description=SSH key agent
+
+[Service]
+Type=simple
+Environment=SSH_AUTH_SOCK=%t/ssh-agent.socket
+ExecStart=/usr/bin/ssh-agent -D -a $SSH_AUTH_SOCK
+
+[Install]
+WantedBy=default.target
+```
+
+Next run the following commands
+```sh
+systemctl --user enable ssh-agent
+systemctl --user start ssh-agent
+```
+
+Finally add the following line to `~/.ssh/config`
+```sh
+AddKeysToAgent  yes
+```
+
 ## Basics
 * Clone this to ~/dev/dotfile
 * symlink it to ~/.mydotfiles
@@ -9,7 +36,7 @@ might be OS specific, or only when I decide to use specific programs (bash/zsh).
 ## Packages
 
 ```sh
-pacman -S vim tmux git go cmake nodejs npm python base-devel
+pacman -S vim nvim tmux git go cmake base-devel docker docker-compose docker-scan
 ```
 
 - Docker
