@@ -29,7 +29,7 @@ echo "== Setting up git =="
 echo "===================="
 
 git config --global init.defaultBranch main
-git config --global user.email bryan@vestey.dev
+git config --global user.email "bryan@vestey.dev"
 git config --global user.name "Bryan Vestey"
 
 echo "===================="
