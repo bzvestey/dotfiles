@@ -37,18 +37,6 @@ Then open nvim and run `:PlugInstall` to install the plugins.
 ##################################
 npm install -g graphql-language-service-cli sql-language-server svelte-language-server typescript typescript-language-server vim-language-server yaml-language-server
 
-# Markdown Support
-##################
-
-# Linux/WSL (version is in the URL)
-curl -o ~/.local/bin/zeta-note --create-dirs -L https://github.com/artempyanykh/zeta-note/releases/download/2021-08-22/zeta-note-linux
-
-# MacOS (version is in the URL)
-curl -o ~/bin/zeta-note --create-dirs -L https://github.com/artempyanykh/zeta-note/releases/download/2021-08-22/zeta-note-macos
-
-# Set Permissions
-chmod u+x ~/.local/bin/zeta-note
-
 # Terraform Support
 ###################
 

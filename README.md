@@ -2,41 +2,18 @@
 These are the random dot or settings files I use on \*nix based devices.  Some
 might be OS specific, or only when I decide to use specific programs (bash/zsh).
 
-## Setup ssh-agent
+## Fast Paced Install
 
-Create `~/.config/systemd/user/ssh-agent.service` with the following content.
-```
-[Unit]
-Description=SSH key agent
-
-[Service]
-Type=simple
-Environment=SSH_AUTH_SOCK=%t/ssh-agent.socket
-ExecStart=/usr/bin/ssh-agent -D -a $SSH_AUTH_SOCK
-
-[Install]
-WantedBy=default.target
-```
-
-Next run the following commands
-```sh
-systemctl --user enable ssh-agent
-systemctl --user start ssh-agent
-```
-
-Finally add the following line to `~/.ssh/config`
-```sh
-AddKeysToAgent  yes
-```
+Clone this to `~/dev/dotfiles`, install zsh/oh-my-zsh, and then run the `linux-setup.sh` script.
 
 ## Basics
-* Clone this to ~/dev/dotfile
+* Clone this to ~/dev/dotfiles
 * symlink it to ~/.mydotfiles
 
 ## Packages
 
 ```sh
-pacman -S vim nvim tmux git go cmake base-devel docker docker-compose docker-scan
+pacman -S vim neovim tmux git go cmake base-devel docker docker-compose docker-scan kitty
 ```
 
 - Docker
