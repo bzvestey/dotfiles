@@ -23,4 +23,5 @@ systemctl --user start ssh-agent
 Finally add the following line to `~/.ssh/config`
 ```sh
 AddKeysToAgent  yes
+UseKeyChain yes
 ```
