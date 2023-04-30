@@ -213,7 +213,7 @@ cmp.setup({
 })
 
 -- Setup language servers
-local cmp_capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities());
+local cmp_capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities());
 require'lspconfig'.bashls.setup{ capabilities = cmp_capabilities; }
 require'lspconfig'.gopls.setup{ capabilities = cmp_capabilities; }
 require'lspconfig'.graphql.setup{ capabilities = cmp_capabilities; }
@@ -226,8 +226,4 @@ require'lspconfig'.terraformls.setup{ capabilities = cmp_capabilities; }
 require'lspconfig'.tsserver.setup{ capabilities = cmp_capabilities; }
 require'lspconfig'.vimls.setup{ capabilities = cmp_capabilities; }
 require'lspconfig'.yamlls.setup{ capabilities = cmp_capabilities; }
-require'lspconfig'.zeta_note.setup{
-  cmd = {'~/.local/bin/zeta-note'};
-  capabilities = cmp_capabilities;
-}
 EOF
