@@ -6,7 +6,8 @@ echo "========================="
 echo "== Installing Packages =="
 echo "========================="
 
-sudo pacman -S vim neovim tmux git go cmake base-devel docker docker-compose docker-scan kitty rust
+sudo pacman -S vim neovim tmux git go cmake base-devel docker docker-compose docker-scan rust
+# Removed kitty for now
 
 echo "========================"
 echo "== Making Directories =="
@@ -59,10 +60,10 @@ echo "====================="
 echo "== Setting up Node =="
 echo "====================="
 
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-nvm install node
+curl -fsSL https://fnm.vercel.app/install | bash
+export PATH="/home/bzvestey/.local/share/fnm:$PATH"
+eval "`fnm env`"
+fnm install --latest
 
 echo "====================="
 echo "== Setting up tmux =="
@@ -87,7 +88,7 @@ echo "======================="
 echo "== Setting up VSCode =="
 echo "======================="
 
-curl -L https://code.visualstudio.com/sha/download?build=stable&os=linux-x64 --output - | tar -xz -C $HOME/Documents
+curl -L "https://code.visualstudio.com/sha/download?build=stable&os=linux-x64" --output - | tar -xz -C $HOME/.local/apps
 ln -s $HOME/.local/apps/VSCode-linux-x64/bin/code $HOME/.local/bin/code
 
 echo "==========================="
