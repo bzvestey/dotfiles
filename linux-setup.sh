@@ -6,8 +6,42 @@ echo "========================="
 echo "== Installing Packages =="
 echo "========================="
 
-sudo pacman -S vim neovim tmux git go cmake base-devel docker docker-compose docker-scan rust
-# Removed kitty for now
+sudo pacman -S vim neovim tmux base-devel git cmake
+sudo pacman -S docker docker-compose docker-scan
+sudo pacman -S otf-cascadia-code ttf-cascadia-code woff2-cascadia-code
+
+flatpak install flathub org.wezfurlong.wezterm
+
+pamac install asdf-vm
+. /opt/asdf-vm/asdf.sh
+
+asdf plugin add mage
+asdf install mage latest
+asdf global mage latest
+
+asdf plugin add golang
+asdf install golang latest
+asdf global golang latest
+
+asdf plugin add nodejs
+asdf install nodejs latest
+asdf global nodejs latest
+
+asdf plugin add rust
+asdf install rust latest
+asdf global rust latest
+
+asdf plugin add kubectl
+asdf install kubectl latest
+asdf global kubectl latest
+
+asdf plugin add kind
+asdf install kind latest
+asdf global kind latest
+
+asdf plugin add k9s
+asdf install k9s latest
+asdf global k9s latest
 
 echo "========================"
 echo "== Making Directories =="
@@ -56,20 +90,25 @@ export ZSH=$HOME/.oh-my-zsh
 source $HOME/.mydotfiles/zsh/zshrc-linux.zsh
 EOF
 
-echo "====================="
-echo "== Setting up Node =="
-echo "====================="
+echo "========================"
+echo "== Setting up wezterm =="
+echo "========================"
 
-curl -fsSL https://fnm.vercel.app/install | bash
-export PATH="/home/bzvestey/.local/share/fnm:$PATH"
-eval "`fnm env`"
-fnm install --latest
+ln -s $HOME/.mydotfiles/wezterm/wezterm.lua $HOME/.wezterm.lua
 
 echo "====================="
 echo "== Setting up tmux =="
 echo "====================="
 
 ln -s $HOME/.mydotfiles/tmux/tmux.conf $HOME/.tmux.conf
+
+echo "======================="
+echo "== Setting up Docker =="
+echo "======================="
+
+sudo systemctl enable docker
+sudo systemctl start docker
+sudo usermod -aG docker $USER
 
 echo "======================="
 echo "== Setting up NeoVIM =="
@@ -98,3 +137,4 @@ echo "==========================="
 echo 'Open nvim and run ":PlugInstall" to install plugins.'
 echo 'Open nvim and run ":TSInstall all" to install treesplitter items.'
 echo 'Open nvim and run ":helptags ALL" to update all the help tags'
+echo 'Log out and back in to have permissions to interact with docker'
