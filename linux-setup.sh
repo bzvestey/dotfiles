@@ -6,7 +6,8 @@ echo "========================="
 echo "== Installing Packages =="
 echo "========================="
 
-sudo pacman -S vim neovim tmux base-devel git cmake
+sudo pacman -S vim neovim base-devel git cmake
+sudo pacman -S wezterm wezterm-shell-integration wezterm-terminfo
 sudo pacman -S docker docker-compose docker-scan
 sudo pacman -S otf-cascadia-code ttf-cascadia-code woff2-cascadia-code
 
@@ -14,10 +15,6 @@ flatpak install flathub org.wezfurlong.wezterm
 
 pamac install asdf-vm
 . /opt/asdf-vm/asdf.sh
-
-asdf plugin add mage
-asdf install mage latest
-asdf global mage latest
 
 asdf plugin add golang
 asdf install golang latest
@@ -42,6 +39,14 @@ asdf global kind latest
 asdf plugin add k9s
 asdf install k9s latest
 asdf global k9s latest
+
+asdf plugin add mage
+asdf install mage latest
+asdf global mage latest
+
+asdf plugin add zellij
+asdf install zellij latest
+asdf global zellij latest
 
 echo "========================"
 echo "== Making Directories =="
