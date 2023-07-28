@@ -11,9 +11,7 @@ sudo pacman -S wezterm wezterm-shell-integration wezterm-terminfo
 sudo pacman -S docker docker-compose docker-scan
 sudo pacman -S otf-cascadia-code ttf-cascadia-code woff2-cascadia-code
 
-flatpak install flathub org.wezfurlong.wezterm
-
-pamac install asdf-vm
+pamac build asdf-vm
 . /opt/asdf-vm/asdf.sh
 
 asdf plugin add golang
