@@ -6,7 +6,7 @@ echo "========================="
 echo "== Installing Packages =="
 echo "========================="
 
-sudo pacman -S vim neovim base-devel git cmake
+sudo pacman -S vim neovim base-devel git cmake zsh
 sudo pacman -S wezterm wezterm-shell-integration wezterm-terminfo
 sudo pacman -S docker docker-compose docker-scan
 sudo pacman -S otf-cascadia-code ttf-cascadia-code woff2-cascadia-code
@@ -82,6 +82,8 @@ systemctl --user start ssh-agent
 echo "===================="
 echo "== Setting up zsh =="
 echo "===================="
+
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 mv $HOME/.zshrc $HOME/.zshrc.pre-personal
 
