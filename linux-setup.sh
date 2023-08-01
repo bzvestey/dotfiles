@@ -116,6 +116,12 @@ sudo systemctl start docker
 sudo usermod -aG docker $USER
 
 echo "======================="
+echo "== Setting up Zellij =="
+echo "======================="
+
+ln -s $HOME/.mydotfiles/zellij $HOME/.config/zellij
+
+echo "======================="
 echo "== Setting up NeoVIM =="
 echo "======================="
 
