@@ -86,6 +86,12 @@ source $ZSH/oh-my-zsh.sh
 
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 
+##############################################################################
+## Install/Update VS Code                                                   ##
+##############################################################################
+
+alias code_update="curl -L \"https://code.visualstudio.com/sha/download?build=stable&os=linux-x64\" --output - | tar -xz -C $HOME/.local/apps"
+
 ###############################################################################
 ## Load our extra files                                                      ##
 ###############################################################################
