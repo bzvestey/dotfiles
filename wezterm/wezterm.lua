@@ -19,5 +19,9 @@ config.color_scheme = 'Dark Violet (base16)'
 config.font = wezterm.font('CascadiaCode')
 config.font_size = 12
 
+-- Set the initial size
+config.initial_cols = 100
+config.initial_rows = 25
+
 -- and finally, return the configuration to wezterm
 return config
