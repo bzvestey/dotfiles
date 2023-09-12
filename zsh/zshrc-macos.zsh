@@ -92,16 +92,16 @@ source $ZSH/oh-my-zsh.sh
 #source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # Completions
-fpath=(/usr/local/share/zsh-completions $fpath)
+fpath=(/opt/homebrew/share/zsh-completions $fpath)
 
 # Git Prompt
 # source "/usr/local/opt/zsh-git-prompt/zshrc.sh"
 
 # Syntax Highlighting
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # Navigation Tools
-source /usr/local/share/zsh-navigation-tools/zsh-navigation-tools.plugin.zsh
+source /opt/homebrew/share/zsh-navigation-tools/zsh-navigation-tools.plugin.zsh
 
 ###############################################################################
 ## Load our extra files                                                      ##

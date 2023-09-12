@@ -20,7 +20,13 @@ export EDITOR=/usr/bin/vim
 ## asdf                                                                      ##
 ###############################################################################
 
-. /opt/asdf-vm/asdf.sh
+if test -f /opt/asdf-vm/asdf.sh; then
+  . /opt/asdf-vm/asdf.sh
+fi
+
+if test -f /opt/homebrew/opt/asdf/libexec/asdf.sh; then
+  . /opt/homebrew/opt/asdf/libexec/asdf.sh
+fi
 
 ###############################################################################
 ## Auto load completion                                                      ##
