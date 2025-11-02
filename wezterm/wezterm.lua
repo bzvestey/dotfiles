@@ -17,7 +17,7 @@ config.color_scheme = 'Dark Violet (base16)'
 
 -- Set the font
 -- config.font = wezterm.font('CascadiaCode')
-config.font = wezterm.font('CommitMono')
+config.font = wezterm.font('CommitMono Nerd Font')
 config.font_size = 12
 
 -- Set the initial size
