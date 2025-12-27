@@ -1,12 +1,29 @@
-{ config, pkgs, ... }:
+# All the software needed when working with code that is not part of the base packages that are needed
 
-{
-  # Install neovim
-  programs.neovim = {
-    enable = true;
-    defaultEditor = true;
+{ config, pkgs, ... }:
+let
+  pkgs = import <nixpkgs> { };
+  inherit (pkgs) lib;
+
+  pyproject-nix = import (builtins.fetchGit {
+    url = "https://github.com/pyproject-nix/pyproject.nix.git";
+  }) {
+    inherit lib;
   };
 
+  uv2nix = import (builtins.fetchGit {
+    url = "https://github.com/pyproject-nix/uv2nix.git";
+  }) {
+    inherit pyproject-nix lib;
+  };
+
+  pyproject-build-systems = import (builtins.fetchGit {
+    url = "https://github.com/pyproject-nix/build-system-pkgs.git";
+  }) {
+    inherit pyproject-nix uv2nix lib;
+  };
+in
+{
   # Enable common container config files in /etc/containers
   virtualisation.containers.enable = true;
   virtualisation = {
@@ -26,10 +43,9 @@
     uv
     go
     rustup
-
-    # Version control
-    git
-    jujutsu
+    clang
+    gcc
+    llvm
 
     # Editors
     zed-editor

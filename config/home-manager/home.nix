@@ -44,6 +44,9 @@
     # '')
     pkgs.hakuneko
     pkgs.discord
+
+    # Temp
+    pkgs.zoom-us
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -159,6 +162,10 @@
         ms-azuretools.vscode-docker
         ms-vscode-remote.remote-ssh
         rust-lang.rust-analyzer
+        nefrob.vscode-just-syntax
+        redhat.ansible
+        redhat.vscode-yaml
+        antyos.openscad
       ];
   };
 }

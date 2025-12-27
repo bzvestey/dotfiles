@@ -29,7 +29,9 @@
 
       # Include program configurations
       ../common/programs/1password.nix
+      ../common/programs/3dprinting.nix
       ../common/programs/browsers.nix
+      ../common/programs/core.nix
       ../common/programs/files.nix
       ../common/programs/programming.nix
       ../common/programs/terminal.nix
