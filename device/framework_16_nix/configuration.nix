@@ -2,7 +2,12 @@
 
 {
   imports =
-    [ # Include the results of the hardware scan.
+    [
+      # Import community hardware settings
+      <nixos-hardware/framework/16-inch/amd-ai-300-series>
+      <nixos-hardware/framework/16-inch/amd-ai-300-series/nvidia>
+
+      # Include the results of the hardware scan.
       ./hardware-configuration.nix
       
       # Include core configurations
@@ -15,7 +20,7 @@
       # Include hardware configurations
       ../common/hardware/audio.nix
       ../common/hardware/fingerprint-reader.nix
-      ../common/hardware/graphics-amd.nix
+      ../common/hardware/graphics-nvidia+amd.nix
       ../common/hardware/keyboard.nix
       ../common/hardware/printer.nix
 
@@ -26,6 +31,7 @@
       ../common/services/tailscale.nix
       ../common/services/syncthing.nix
       ../common/services/flatpak.nix
+      ../common/services/samba.nix
 
       # Include program configurations
       ../common/programs/1password.nix

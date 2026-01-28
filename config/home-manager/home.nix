@@ -46,7 +46,6 @@
     pkgs.discord
 
     # Temp
-    pkgs.zoom-us
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -65,7 +64,9 @@
     ".ssh/config".source = "/home/bzvestey/dev/dotfiles/ssh/config";
     ".tmux.conf".source = "/home/bzvestey/dev/dotfiles/tmux/tmux.conf";
 
+    "${config.xdg.configHome}/cosmic".source = "${builtins.getEnv "HOME"}/dev/dotfiles/config/cosmic";
     "${config.xdg.configHome}/ghostty".source = "${builtins.getEnv "HOME"}/dev/dotfiles/config/ghostty";
+    "${config.xdg.configHome}/hypr".source = "${builtins.getEnv "HOME"}/dev/dotfiles/config/hypr";
     "${config.xdg.configHome}/jj".source = "${builtins.getEnv "HOME"}/dev/dotfiles/config/jj";
     "${config.xdg.configHome}/k9s".source = "${builtins.getEnv "HOME"}/dev/dotfiles/config/k9s";
     "${config.xdg.configHome}/smug".source = "${builtins.getEnv "HOME"}/dev/dotfiles/config/smug";
@@ -161,6 +162,7 @@
         ms-python.python
         ms-azuretools.vscode-docker
         ms-vscode-remote.remote-ssh
+        ms-vscode-remote.remote-containers
         rust-lang.rust-analyzer
         nefrob.vscode-just-syntax
         redhat.ansible

@@ -18,7 +18,7 @@ cleanup:
 
 # Pull the latest channels and see what would change with a build
 nixos-channel-update:
-    sudo nixos-rebuild dry-build --upgrade-all
+    sudo nix-channel --update
 
 # Switches over to the latest nixos config using the current version of the
 # channels the system is looking at
@@ -29,6 +29,11 @@ nixos-switch:
 # the channels the system is looking at
 home-manager-switch:
     home-manager switch -b backup
+
+# Update the firmware/bios of the computer
+updateFirmware:
+    fwupdmgr refresh --force
+    fwupdmgr update
 
 ###############################################################################
 ## Setting up a device                                                       ##

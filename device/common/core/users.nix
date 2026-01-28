@@ -6,7 +6,7 @@
   users.users.bzvestey = {
     isNormalUser = true;
     description = "Bryan Vestey";
-    extraGroups = [ "networkmanager" "wheel" "users" "bzvestey" ];
+    extraGroups = [ "networkmanager" "wheel" "users" "bzvestey" "dialout" ];
     shell = pkgs.zsh;
     packages = with pkgs; [
     # thunderbird

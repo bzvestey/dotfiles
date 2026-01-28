@@ -29,6 +29,8 @@ source ~/.mydotfiles/zsh/zshrc-macos.zsh
     export device_name="<name of device>"
     ```
 
+Also [see](https://github.com/nix-community/awesome-nix?tab=readme-ov-file).
+
 ### New device setup
 
 1. Create a folder for the device, and copy the generated configs into it
@@ -116,6 +118,7 @@ source ~/.mydotfiles/zsh/zshrc-macos.zsh
     ```sh
     sudo nix-channel --add https://nixos.org/channels/nixos-unstable nixos
     sudo nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
+    sudo nix-channel --add https://github.com/NixOS/nixos-hardware/archive/master.tar.gz nixos-hardware
     ```
 
 1. Install nixos packages based on updated channels
