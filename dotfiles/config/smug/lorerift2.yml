@@ -1,0 +1,16 @@
+session: lorerift2
+
+root: ~/dev/lorerift2
+
+windows:
+  - name: code
+    root: .
+    layout: main-vertical
+    commands:
+      - nvim
+    panes:
+      - name: infratructure
+        root: .
+      - name: commands
+        root: .
+
