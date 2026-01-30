@@ -6,6 +6,10 @@ update:
 switch host=`hostname`:
     sudo nixos-rebuild switch --flake .#{{host}}
 
+# Setup as new boost config for the current system configuration
+boot host=`hostname`:
+    sudo nixos-rebuild boot --flake .#{{host}}
+
 # Update system firmware
 firmware:
     fwupdmgr refresh

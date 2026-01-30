@@ -11,6 +11,12 @@
     };
 
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+
+    agenix = {
+      url = "github:ryantm/agenix";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
+    };
   };
 
   outputs =
@@ -19,6 +25,7 @@
       nixpkgs,
       home-manager,
       nixos-hardware,
+      agenix,
       ...
     }@inputs:
     let
@@ -30,6 +37,9 @@
         specialArgs = { inherit inputs; };
         modules = [
           ./hosts/framework16nix/default.nix
+
+          # Agenix
+          agenix.nixosModules.default
 
           # Import the Home Manager NixOS module
           home-manager.nixosModules.home-manager
@@ -59,10 +69,11 @@
             deadnix
             git
             opencode
+            agenix.packages.${system}.default
           ];
           shellHook = ''
-            echo "Welcome to your Nix development environment!"
-	    opencode
+                        echo "Welcome to your Nix development environment!"
+            	    opencode
           '';
         };
     };

@@ -1,8 +1,5 @@
 { config, pkgs, ... }:
 
-let
-  vars = import ./vars.nix;
-in
 {
   # Setup syncthing
   services.syncthing = {
@@ -16,7 +13,7 @@ in
     settings = {
       devices = {
         "truenas" = {
-          id = vars.syncthing_remote_id;
+          id = "T7MLFBB-BU6POCE-LSIXPMY-WHHUT76-MCAQVX6-GFU4JL2-ZRMCPTA-TZEJRAK";
         };
       };
       folders = {

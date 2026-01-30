@@ -18,6 +18,7 @@
     ../../modules/nixos/core/base.nix
     ../../modules/nixos/core/locale.nix
     ../../modules/nixos/core/networking.nix
+    ../../modules/nixos/core/secrets.nix
     ../../modules/nixos/core/time.nix
     ../../modules/nixos/core/users.nix
 
