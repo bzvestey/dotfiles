@@ -30,6 +30,7 @@
 
     # Include display manager configurations
     ../../modules/nixos/display/gnome.nix
+    ../../modules/nixos/display/hyprland.nix
 
     # Include services configurations
     ../../modules/nixos/services/tailscale.nix
