@@ -4,8 +4,8 @@
 # Sets up a NixOS host from this configuration.
 # Usage: curl -L <raw-url> | bash
 
-REPO_URL="https://github.com/bzvestey/nix-configs"
-REPO_DIR="$HOME/dev/nix-configs"
+REPO_URL="https://github.com/bzvestey/dotfiles"
+REPO_DIR="$HOME/dev/dotfiles"
 
 # ANSI Colors
 GREEN='\033[0;32m'

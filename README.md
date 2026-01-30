@@ -8,7 +8,7 @@ This repository contains the NixOS system configurations and Home Manager user e
 To quickly set up a new machine (or an existing one not yet tracking this repo), run the bootstrap script. This will clone the repository, generate hardware configurations, and help apply the system state.
 
 ```bash
-curl -L https://raw.githubusercontent.com/bzvestey/nix-configs/main/bootstrap.sh | bash
+curl -L https://raw.githubusercontent.com/bzvestey/dotfiles/main/bootstrap.sh | bash
 ```
 
 The script will prompt you to:
@@ -17,7 +17,7 @@ The script will prompt you to:
 
 ### Manual Installation
 If you prefer to set up manually:
-1.  Clone the repo: `git clone https://github.com/bzvestey/nix-configs ~/dev/nix-configs`
+1.  Clone the repo: `git clone https://github.com/bzvestey/dotfiles ~/dev/dotfiles`
 2.  Generate hardware config: `nixos-generate-config --show-hardware-config > hosts/<new-host>/hardware.nix`
 3.  Add the host to `flake.nix`.
 4.  Build: `sudo nixos-rebuild switch --flake .#<host>`
