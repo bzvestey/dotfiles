@@ -62,6 +62,7 @@
           ];
           shellHook = ''
             echo "Welcome to your Nix development environment!"
+	    opencode
           '';
         };
     };
