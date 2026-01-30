@@ -5,12 +5,12 @@
   services.printing.enable = true;
   hardware.printers = {
     ensurePrinters = [
-      {
-        name = "Samsung-C43x";
-        location = "Home";
-        deviceUri = "ipp://10.15.7.75/ipp/print";
-        model = "everywhere";
-      }
+      # {
+      #   name = "Samsung-C43x";
+      #   location = "Home";
+      #   deviceUri = "ipp://10.15.7.75/ipp/print";
+      #   model = "everywhere";
+      # }
     ];
   };
 }

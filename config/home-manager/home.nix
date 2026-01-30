@@ -99,6 +99,8 @@
       # Change from just <Super>space so that the search light extension can use it.
       switch-input-source = [ "<Control><Super>space" ];
       switch-input-source-backward = [ "<Shift><Super>space" ];
+
+      # Stop messing up my screens....
     };
   };
 
