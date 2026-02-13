@@ -62,7 +62,10 @@
     "${config.xdg.configHome}/cosmic".source = ../../dotfiles/config/cosmic;
     "${config.xdg.configHome}/ghostty".source = ../../dotfiles/config/ghostty;
     "${config.xdg.configHome}/hypr".source = ../../dotfiles/config/hypr;
-    "${config.xdg.configHome}/jj".source = ../../dotfiles/config/jj;
+    "${config.xdg.configHome}/jj" = {
+      recursive = true;
+      source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dev/dotfiles/dotfiles/config/jj";
+    };
     "${config.xdg.configHome}/k9s".source = ../../dotfiles/config/k9s;
     "${config.xdg.configHome}/smug".source = ../../dotfiles/config/smug;
     "${config.xdg.configHome}/zed".source = ../../dotfiles/config/zed;

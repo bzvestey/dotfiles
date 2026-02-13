@@ -12,7 +12,7 @@ boot host=`hostname`:
 
 # Update system firmware
 firmware:
-    fwupdmgr refresh
+    fwupdmgr refresh --force
     fwupdmgr get-updates
     fwupdmgr update
 

@@ -1,2 +1,3 @@
 vars.nix
 smb-secrets
+dotfiles/config/jj/repos/

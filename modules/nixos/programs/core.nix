@@ -17,5 +17,8 @@
 
     # Running commands
     just
+
+    # EPub/lcpl reader
+    thorium-reader
   ];
 }
