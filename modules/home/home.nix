@@ -93,12 +93,15 @@
   };
 
   dconf.settings = {
-    "org/gnome/desktop/wm/keybindings" = {
       # Change from just <Super>space so that the search light extension can use it.
+    "org/gnome/desktop/wm/keybindings" = {
       switch-input-source = [ "<Control><Super>space" ];
       switch-input-source-backward = [ "<Shift><Super>space" ];
+    };
 
-      # Stop messing up my screens....
+    # Stop messing up my screens....
+    "org/gnome/mutter/keybindings" = {
+      switch-monitor = [];
     };
   };
 
