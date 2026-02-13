@@ -15,6 +15,10 @@
     git
     jujutsu
 
+    # Nix language servers
+    nixd
+    nil
+
     # Running commands
     just
 
