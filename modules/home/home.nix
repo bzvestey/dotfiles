@@ -37,7 +37,6 @@
     # (pkgs.writeShellScriptBin "my-hello" ''
     #   echo "Hello, ${config.home.username}!"
     # '')
-    pkgs.hakuneko
     pkgs.discord
 
     # Temp
@@ -62,14 +61,18 @@
     "${config.xdg.configHome}/cosmic".source = ../../dotfiles/config/cosmic;
     "${config.xdg.configHome}/ghostty".source = ../../dotfiles/config/ghostty;
     "${config.xdg.configHome}/hypr".source = ../../dotfiles/config/hypr;
-    "${config.xdg.configHome}/jj" = {
-      recursive = true;
-      source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dev/dotfiles/dotfiles/config/jj";
-    };
     "${config.xdg.configHome}/k9s".source = ../../dotfiles/config/k9s;
     "${config.xdg.configHome}/smug".source = ../../dotfiles/config/smug;
     "${config.xdg.configHome}/zed".source = ../../dotfiles/config/zed;
     "${config.xdg.configHome}/zellij".source = ../../dotfiles/config/zellij;
+    "${config.xdg.configHome}/jj" = {
+      recursive = true;
+      source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dev/dotfiles/dotfiles/config/jj";
+    };
+    "${config.xdg.configHome}/hakuneko-desktop" = {
+      recursive = true;
+      source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dev/dotfiles/dotfiles/config/hakuneko-desktop";
+    };
   };
 
   # Home Manager can also manage your environment variables through
@@ -93,7 +96,7 @@
   };
 
   dconf.settings = {
-      # Change from just <Super>space so that the search light extension can use it.
+    # Change from just <Super>space so that the search light extension can use it.
     "org/gnome/desktop/wm/keybindings" = {
       switch-input-source = [ "<Control><Super>space" ];
       switch-input-source-backward = [ "<Shift><Super>space" ];
@@ -101,7 +104,7 @@
 
     # Stop messing up my screens....
     "org/gnome/mutter/keybindings" = {
-      switch-monitor = [];
+      switch-monitor = [ ];
     };
   };
 

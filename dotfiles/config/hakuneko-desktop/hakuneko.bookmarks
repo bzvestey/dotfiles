@@ -1,0 +1,42 @@
+[
+  {
+    "title": {
+      "connector": "MangaDex",
+      "manga": "Dungeon Elf ~Dungeon ni Takarabako ga Aru no wa Atarimae desu ka~"
+    },
+    "key": {
+      "connector": "mangadex",
+      "manga": "d57ceb17-3831-42ab-b42e-1ce1a7029285"
+    }
+  },
+  {
+    "title": {
+      "connector": "MangaHere",
+      "manga": "Is There an Empty Room?"
+    },
+    "key": {
+      "connector": "mangahere",
+      "manga": "/manga/is_there_an_empty_room/"
+    }
+  },
+  {
+    "title": {
+      "connector": "MangaDex",
+      "manga": "Please Bully Me, Miss Villainess!"
+    },
+    "key": {
+      "connector": "mangadex",
+      "manga": "8b34f37a-0181-4f0b-8ce3-01217e9a602c"
+    }
+  },
+  {
+    "title": {
+      "connector": "MangaHere",
+      "manga": "Sousou no Frieren"
+    },
+    "key": {
+      "connector": "mangahere",
+      "manga": "/manga/sousou_no_frieren/"
+    }
+  }
+]
