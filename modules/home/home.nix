@@ -69,14 +69,6 @@
       recursive = true;
       source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dev/dotfiles/dotfiles/config/jj";
     };
-    "${config.xdg.configHome}/hakuneko-desktop/hakuneko.bookmarks" = {
-      recursive = true;
-      source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dev/dotfiles/dotfiles/config/hakuneko-desktop/hakuneko.bookmarks";
-    };
-    "${config.xdg.configHome}/hakuneko-desktop/hakuneko.chaptermarks" = {
-      recursive = true;
-      source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dev/dotfiles/dotfiles/config/hakuneko-desktop/hakuneko.chaptermarks";
-    };
   };
 
   # Home Manager can also manage your environment variables through
