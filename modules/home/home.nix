@@ -1,10 +1,20 @@
-{ config, pkgs, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 
+let
+  # Detect if we're on Darwin
+  isDarwin = pkgs.stdenv.hostPlatform.isDarwin;
+  homeDir = if isDarwin then "/Users/bzvestey" else "/home/bzvestey";
+in
 {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "bzvestey";
-  home.homeDirectory = "/home/bzvestey";
+  home.homeDirectory = homeDir;
 
   # Allow unfree packages
   # nixpkgs config is managed by the system flake when using home-manager.useGlobalPkgs = true
