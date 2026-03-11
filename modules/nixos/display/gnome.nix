@@ -16,7 +16,7 @@
     gnomeExtensions.dash-to-dock
     gnomeExtensions.search-light
     gnomeExtensions.system-monitor
-    gnomeExtensions.tailscale-qs
+    gnomeExtensions.tailscale-status
     gnomeExtensions.wallpaper-slideshow
   ];
 }

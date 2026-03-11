@@ -81,26 +81,12 @@ in
     };
   };
 
-  # Home Manager can also manage your environment variables through
-  # 'home.sessionVariables'. These will be explicitly sourced when using a
-  # shell provided by Home Manager. If you don't want to manage your shell
-  # through Home Manager then you have to manually source 'hm-session-vars.sh'
-  # located at either
-  #
-  #  ~/.nix-profile/etc/profile.d/hm-session-vars.sh
-  #
-  # or
-  #
-  #  ~/.local/state/nix/profiles/profile/etc/profile.d/hm-session-vars.sh
-  #
-  # or
-  #
-  #  /etc/profiles/per-user/bzvestey/etc/profile.d/hm-session-vars.sh
-  #
+  # Home Manager controlled environmebnt variables
   home.sessionVariables = {
-    # EDITOR = "emacs";
+    EDITOR = "nvim";
   };
 
+  # Gnome settings, for computers it is insalled on.
   dconf.settings = {
     # Change from just <Super>space so that the search light extension can use it.
     "org/gnome/desktop/wm/keybindings" = {

@@ -1,13 +1,17 @@
 { config, pkgs, ... }:
 
+let
+  userHome = config.myConfig.user.home;
+  userName = config.myConfig.user.name;
+in
 {
   # Setup syncthing
   services.syncthing = {
     enable = true;
     group = "users";
-    user = "bzvestey";
-    dataDir = "/home/bzvestey/Documents";
-    configDir = "/home/bzvestey/.config/syncthing";
+    user = userName;
+    dataDir = "${userHome}/Documents";
+    configDir = "${userHome}/.config/syncthing";
     overrideDevices = true;
     overrideFolders = true;
     settings = {
@@ -19,12 +23,12 @@
       folders = {
         "yv9ej-sr6dr" = {
           label = "proton";
-          path = "/home/bzvestey/proton";
+          path = "${userHome}/proton";
           devices = [ "truenas" ];
         };
         "6bvaa-syglg" = {
           label = "manga";
-          path = "/home/bzvestey/Documents/Manga";
+          path = "${userHome}/Documents/Manga";
           devices = [ "truenas" ];
         };
       };
