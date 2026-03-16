@@ -17,13 +17,13 @@
 }:
 let
   desktopItem = makeDesktopItem {
-    desktopName = "HakuNeko Desktop";
+    desktopName = "HakuNeko Nightly Desktop";
     genericName = "Manga & Anime Downloader";
     categories = [
       "Network"
       "FileTransfer"
     ];
-    exec = "hakuneko";
+    exec = "hakuneko --no-sandbox";
     icon = "hakuneko-desktop";
     name = "hakuneko-desktop";
   };

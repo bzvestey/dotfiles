@@ -1,8 +1,8 @@
 {
-  "frontend": "frontend@classic-light",
+  "frontend": "frontend@classic-dark",
   "readerEnabled": true,
-  "baseDirectory": "/home/bzvestey/Documents/Mangas",
-  "bookmarkDirectory": "/home/bzvestey/.var/app/io.github.hakuneko.HakuNeko/config/hakuneko-desktop",
+  "baseDirectory": "/home/bzvestey/Documents/Manga",
+  "bookmarkDirectory": "/home/bzvestey/.config/hakuneko-desktop",
   "useSubdirectory": false,
   "ignoreErrorOnDownload": false,
   "chapterTitleFormat": "",

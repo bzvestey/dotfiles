@@ -11,6 +11,16 @@
   },
   {
     "title": {
+      "connector": "Weeb Central",
+      "manga": "Dungeon Elf: What's a Dungeon without Treasure Chests?"
+    },
+    "key": {
+      "connector": "weebcentral",
+      "manga": "/series/01JF03N6JH0XWCF6R2T6RTKND5/dungeon-elf-whats-a-dungeon-without-treasure-chests"
+    }
+  },
+  {
+    "title": {
       "connector": "MangaHere",
       "manga": "Is There an Empty Room?"
     },
