@@ -54,11 +54,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1773422513,
-        "narHash": "sha256-MPjR48roW7CUMU6lu0+qQGqj92Kuh3paIulMWFZy+NQ=",
+        "lastModified": 1773608492,
+        "narHash": "sha256-QZteyExJYSQzgxqdsesDPbQgjctGG7iKV/6ooyQPITk=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "ef12a9a2b0f77c8fa3dda1e7e494fca668909056",
+        "rev": "9a40ec3b78fc688d0908485887d355caa5666d18",
         "type": "github"
       },
       "original": {
@@ -66,6 +66,22 @@
         "repo": "home-manager",
         "type": "github"
       }
+    },
+    "localpkgs": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "path": "./packages",
+        "type": "path"
+      },
+      "original": {
+        "path": "./packages",
+        "type": "path"
+      },
+      "parent": []
     },
     "nix-darwin": {
       "inputs": {
@@ -139,6 +155,7 @@
       "inputs": {
         "agenix": "agenix",
         "home-manager": "home-manager",
+        "localpkgs": "localpkgs",
         "nix-darwin": "nix-darwin",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs",

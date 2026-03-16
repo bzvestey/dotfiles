@@ -23,6 +23,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.home-manager.follows = "home-manager";
     };
+
+    localpkgs = {
+      url = "./packages";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -33,6 +38,7 @@
       home-manager,
       nix-darwin,
       agenix,
+      localpkgs,
       ...
     }@inputs:
     let
@@ -49,6 +55,7 @@
         system = linuxSystem;
         specialArgs = { inherit inputs; };
         modules = [
+          { nixpkgs.overlays = [ localpkgs.overlays.default ]; }
           ./hosts/framework16nix/default.nix
 
           # Agenix
@@ -71,6 +78,7 @@
         system = darwinSystem;
         specialArgs = { inherit inputs; };
         modules = [
+          { nixpkgs.overlays = [ localpkgs.overlays.default ]; }
           ./hosts/darwin-macbook/default.nix
 
           # Home Manager for Darwin

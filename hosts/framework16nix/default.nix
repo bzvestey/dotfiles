@@ -53,5 +53,9 @@
     "/dev/disk/by-uuid/f8c54aa1-9fa7-41ca-bc09-cacb852ad36b";
   networking.hostName = "framework_16_nix";
 
+  environment.systemPackages = [
+    pkgs.localpkgs.hakuneko-nightly
+  ];
+
   system.stateVersion = "25.05";
 }
