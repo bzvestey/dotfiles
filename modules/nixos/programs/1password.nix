@@ -15,6 +15,7 @@
       text = ''
         firefox
         chrome
+        vivaldi-bin
       '';
       mode = "0755";
     };
