@@ -1,10 +1,15 @@
-{ config, pkgs, inputs, ... }:
+{
+  config,
+  pkgs,
+  inputs,
+  ...
+}:
 
 {
   imports = [
     # Include the results of the hardware scan.
     ./hardware.nix
-    
+
     # Import core modules
     ../../modules/nixos/core/base.nix
     ../../modules/nixos/core/locale.nix
@@ -12,7 +17,7 @@
     ../../modules/nixos/core/secrets.nix
     ../../modules/nixos/core/time.nix
     ../../modules/nixos/core/users.nix
-    
+
     # Include hardware configurations
     ../../modules/nixos/hardware/audio.nix
     ../../modules/nixos/hardware/fingerprint-reader.nix
@@ -47,5 +52,5 @@
     pkgs.localpkgs.hakuneko-nightly
   ];
 
-  system.stateVersion = "25.11"; 
+  system.stateVersion = "25.11";
 }

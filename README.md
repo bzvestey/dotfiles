@@ -22,6 +22,14 @@ If you prefer to set up manually:
 3.  Add the host to `flake.nix`.
 4.  Build: `sudo nixos-rebuild switch --flake .#<host>`
 
+### Post istall
+- Fingerprint reader setup:
+   - `fprintd-enroll -f right-index-finger`
+   - `fprintd-enroll -f left-index-finger`
+- Tailscale
+   - `sudo tailscale set --operator=$USER`
+   - `tailscale up --accept-routes`
+
 ## 🛠 Maintenance (Justfile)
 
 This repository includes a `justfile` to simplify common maintenance tasks. Ensure [just](https://github.com/casey/just) is installed (it's included in the devShell).

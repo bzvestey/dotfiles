@@ -77,6 +77,7 @@
         system = linuxSystem;
         specialArgs = { inherit inputs; };
         modules = [
+          { nixpkgs.overlays = [ localpkgs.overlays.default ]; }
           ./hosts/framework13nix/default.nix
           agenix.nixosModules.default
           home-manager.nixosModules.home-manager

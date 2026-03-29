@@ -76,17 +76,17 @@ if [ "$choice" == "1" ]; then
     else
         ls -1 hosts/ | grep "darwin" 2>/dev/null || ls hosts/
     fi
-    
+
     echo ""
     read -p "Enter hostname to apply: " hostname
-    
+
     if [ ! -d "hosts/$hostname" ]; then
         err "Host '$hostname' not found in hosts/ directory!"
         exit 1
     fi
-    
+
     log "Applying configuration for '$hostname'..."
-    
+
     if [ "$OS" == "linux" ]; then
         # Linux/NixOS
         if command -v just &> /dev/null; then
@@ -108,21 +108,21 @@ if [ "$choice" == "1" ]; then
             exit 1
         fi
     fi
-    
+
     success "Configuration applied successfully!"
 
 elif [ "$choice" == "2" ]; then
     # New Host
     read -p "Enter new hostname: " hostname
-    
+
     if [ -d "hosts/$hostname" ]; then
         err "Host directory 'hosts/$hostname' already exists!"
         exit 1
     fi
-    
+
     log "Creating host directory..."
     mkdir -p "hosts/$hostname"
-    
+
     if [ "$OS" == "linux" ]; then
         # Linux/NixOS New Host
         # Get Hardware Config
@@ -141,7 +141,7 @@ elif [ "$choice" == "2" ]; then
                  exit 1
             fi
         fi
-        
+
         # Create default.nix
         log "Creating default.nix..."
         # Determine state version (fallback to 24.11 if detection fails)
@@ -154,22 +154,22 @@ elif [ "$choice" == "2" ]; then
   imports = [
     # Include the results of the hardware scan.
     ./hardware.nix
-    
+
     # Import core modules
     ../../modules/nixos/core/base.nix
     ../../modules/nixos/core/users.nix
-    
+
     # Add other modules here (e.g. desktop environment, services)
   ];
 
   networking.hostName = "$hostname";
 
-  system.stateVersion = "$STATE_VERSION"; 
+  system.stateVersion = "$STATE_VERSION";
 }
 EOF
 
         success "Created configuration files in hosts/$hostname/"
-        
+
         # Instructions for flake.nix
         echo ""
         warn "ACTION REQUIRED: You must manually add the host to flake.nix"
@@ -180,6 +180,7 @@ EOF
         echo "        system = linuxSystem;"
         echo "        specialArgs = { inherit inputs; };"
         echo "        modules = ["
+        echo "          { nixpkgs.overlays = [ localpkgs.overlays.default ]; }"
         echo "          ./hosts/$hostname/default.nix"
         echo "          agenix.nixosModules.default"
         echo "          home-manager.nixosModules.home-manager"
@@ -194,11 +195,11 @@ EOF
         echo "---------------------------------------------------------------"
         echo ""
         log "After editing flake.nix, run: sudo nixos-rebuild switch --flake .#$hostname"
-        
+
     else
         # macOS/nix-darwin New Host
         log "Creating macOS configuration..."
-        
+
         cat > "hosts/$hostname/default.nix" <<EOF
 { config, pkgs, inputs, ... }:
 
@@ -212,10 +213,10 @@ EOF
 
   # Nix settings
   nix.settings.experimental-features = "nix-command flakes";
-  
+
   # Auto upgrade nix package and the daemon service.
   services.nix-daemon.enable = true;
-  
+
   # Set Git commit hash for darwin-version.
   system.configurationRevision = inputs.self.rev or inputs.self.dirtyRev or null;
 
@@ -229,7 +230,7 @@ EOF
 EOF
 
         success "Created configuration files in hosts/$hostname/"
-        
+
         # Instructions for flake.nix
         echo ""
         warn "ACTION REQUIRED: You must manually add the host to flake.nix"
@@ -240,6 +241,7 @@ EOF
         echo "        system = darwinSystem;"
         echo "        specialArgs = { inherit inputs; };"
         echo "        modules = ["
+        echo "          { nixpkgs.overlays = [ localpkgs.overlays.default ]; }"
         echo "          ./hosts/$hostname/default.nix"
         echo "          home-manager.darwinModules.home-manager"
         echo "          {"
