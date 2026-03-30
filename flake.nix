@@ -73,6 +73,22 @@
         ];
       };
 
+      nixosConfigurations.framework13nix = nixpkgs.lib.nixosSystem {
+        system = linuxSystem;
+        specialArgs = { inherit inputs; };
+        modules = [
+          ./hosts/framework13nix/default.nix
+          agenix.nixosModules.default
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.${homeManagerUser} = homeManagerConfig;
+            home-manager.extraSpecialArgs = { inherit inputs; };
+          }
+        ];
+      };
+
       # nix-darwin Configurations (macOS)
       darwinConfigurations.macbook = nix-darwin.lib.darwinSystem {
         system = darwinSystem;
