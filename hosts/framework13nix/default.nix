@@ -7,6 +7,9 @@
 
 {
   imports = [
+    # Import community hardware settings
+    "${inputs.nixos-hardware}/framework/13-inch/11th-gen-intel"
+
     # Include the results of the hardware scan.
     ./hardware.nix
 
@@ -20,6 +23,7 @@
 
     # Include hardware configurations
     ../../modules/nixos/hardware/audio.nix
+    ../../modules/nixos/hardware/bluetooth.nix
     ../../modules/nixos/hardware/fingerprint-reader.nix
     ../../modules/nixos/hardware/keyboard.nix
     ../../modules/nixos/hardware/printer.nix

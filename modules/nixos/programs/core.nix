@@ -22,6 +22,10 @@
     # Running commands
     just
 
+    # Utilites for working with devices
+    pciutils
+    usbutils
+
     # EPub/lcpl reader
     thorium-reader
   ];
