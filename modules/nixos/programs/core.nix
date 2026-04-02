@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   # Install neovim for editing files
@@ -7,26 +7,29 @@
     defaultEditor = true;
   };
 
-  # Update firmware for laptop
-  services.fwupd.enable = true;
+  # Update firmware for laptop (Linux-only)
+  services.fwupd.enable = lib.mkIf (!pkgs.stdenv.isDarwin) true;
 
-  environment.systemPackages = with pkgs; [
-    # Version control needed to pull down configs
-    git
-    jujutsu
+  environment.systemPackages =
+    with pkgs;
+    [
+      # Version control needed to pull down configs
+      git
+      jujutsu
 
-    # Nix language servers
-    nixd
-    nil
+      # Nix language servers
+      nixd
+      nil
 
-    # Running commands
-    just
+      # Running commands
+      just
 
-    # Utilites for working with devices
-    pciutils
-    usbutils
-
-    # EPub/lcpl reader
-    thorium-reader
-  ];
+      # EPub/lcpl reader
+      thorium-reader
+    ]
+    ++ lib.optionals (!pkgs.stdenv.isDarwin) [
+      # Utilites for working with devices
+      pciutils
+      usbutils
+    ];
 }

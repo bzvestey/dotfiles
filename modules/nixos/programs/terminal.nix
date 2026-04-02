@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   # Install direnv
@@ -13,11 +13,14 @@
     clock24 = true;
   };
 
-  environment.systemPackages = with pkgs; [
-    # Terminal
-    ghostty
-
-    # System
-    systemctl-tui
-  ];
+  environment.systemPackages =
+    with pkgs;
+    [
+      # Terminal
+      ghostty
+    ]
+    ++ lib.optionals (!pkgs.stdenv.isDarwin) [
+      # System (Linux-only)
+      systemctl-tui
+    ];
 }

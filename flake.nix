@@ -127,17 +127,23 @@
         in
         pkgs.mkShell {
           buildInputs = with pkgs; [
+            # Nix tools
             nil
             nixfmt-rfc-style
             statix
             deadnix
-            git
-            opencode
             agenix.packages.${linuxSystem}.default
+
+            # Development tools
+            zellij
+
+            # AI tools
+            opencode
+            claude-code
           ];
           shellHook = ''
             echo "Welcome to your Nix development environment!"
-            # opencode
+            # zellij -l ./development.kdl
           '';
         };
 
@@ -150,15 +156,22 @@
         in
         pkgs.mkShell {
           buildInputs = with pkgs; [
+            # Nix tools
             nil
             nixfmt-rfc-style
             statix
             deadnix
-            git
+
+            # Development tools
+            zellij
+
+            # AI tools
             opencode
+            claude-code
           ];
           shellHook = ''
             echo "Welcome to your macOS Nix development environment!"
+            zellij -l ./development.kdl
           '';
         };
     };

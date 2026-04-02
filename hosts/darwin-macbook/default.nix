@@ -6,11 +6,25 @@
 }:
 
 {
-  # List packages installed in system profile. To search by name, run:
-  # $ nix-env -qaP | grep wget
-  environment.systemPackages = with pkgs; [
-    vim
-    git
+  imports = [
+    # Import core modules
+    ../../modules/nixos/core/locale.nix
+    ../../modules/nixos/core/secrets.nix
+    ../../modules/nixos/core/time.nix
+    ../../modules/nixos/core/users.nix
+
+    # Include services configurations
+    ../../modules/nixos/services/tailscale.nix
+    ../../modules/nixos/services/syncthing.nix
+
+    # Include program configurations
+    ../../modules/nixos/programs/1password.nix
+    ../../modules/nixos/programs/3dprinting.nix
+    ../../modules/nixos/programs/browsers.nix
+    ../../modules/nixos/programs/core.nix
+    ../../modules/nixos/programs/files.nix
+    ../../modules/nixos/programs/programming.nix
+    ../../modules/nixos/programs/terminal.nix
   ];
 
   # Nix settings

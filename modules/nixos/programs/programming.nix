@@ -1,11 +1,11 @@
 # All the software needed when working with code that is not part of the base packages that are needed
 
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
-  # Enable common container config files in /etc/containers
-  virtualisation.containers.enable = true;
-  virtualisation = {
+  # Enable common container config files in /etc/containers (Linux-only)
+  virtualisation = lib.mkIf (!pkgs.stdenv.isDarwin) {
+    containers.enable = true;
     podman = {
       enable = true;
 
@@ -17,29 +17,32 @@
     };
   };
 
-  environment.systemPackages = with pkgs; [
-    # Language
-    uv
-    go
-    rustup
-    clang
-    gcc
-    llvm
+  environment.systemPackages =
+    with pkgs;
+    [
+      # Language
+      uv
+      go
+      rustup
+      clang
+      gcc
+      llvm
 
-    # Editors
-    zed-editor
+      # Editors
+      zed-editor
 
-    # Dev tools
-    kubectl
-    jq
-    k9s
-    devenv
-
-    # Podman and containers
-    dive # look into docker image layers
-    podman-tui # status of containers in the terminal
-    podman-compose # start group of containers for dev
-  ];
+      # Dev tools
+      kubectl
+      jq
+      k9s
+      devenv
+    ]
+    ++ lib.optionals (!pkgs.stdenv.isDarwin) [
+      # Podman and containers
+      dive # look into docker image layers
+      podman-tui # status of containers in the terminal
+      podman-compose # start group of containers for dev
+    ];
 
   # Setup devenv caches
   nix.extraOptions = ''

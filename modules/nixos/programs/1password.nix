@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   # Install 1password
@@ -7,10 +7,10 @@
     enable = true;
     # Certain features, including CLI integration and system authentication support,
     # require enabling PolKit integration on some desktop environments (e.g. Plasma).
-    polkitPolicyOwners = [ "bzvestey" ];
+    polkitPolicyOwners = lib.mkIf (!pkgs.stdenv.isDarwin) [ "bzvestey" ];
   };
 
-  environment.etc = {
+  environment.etc = lib.mkIf (!pkgs.stdenv.isDarwin) {
     "1password/custom_allowed_browsers" = {
       text = ''
         firefox

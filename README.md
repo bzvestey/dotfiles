@@ -29,6 +29,9 @@ If you prefer to set up manually:
 - Tailscale
    - `sudo tailscale set --operator=$USER`
    - `tailscale up --accept-routes`
+   - `tailscale configure systray --enable-startup=systemd`
+   - `systemctl --user daemon-reload`
+   - `systemctl --user enable --now tailscale-systray`
 
 ## 🛠 Maintenance (Justfile)
 

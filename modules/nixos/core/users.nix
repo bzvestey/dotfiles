@@ -23,7 +23,7 @@ in
     };
   };
 
-  config = {
+  config = lib.mkIf (!pkgs.stdenv.isDarwin) {
     # Define a user account. Don't forget to set a password with 'passwd'.
     users.defaultUserShell = pkgs.zsh;
     users.users.${cfg.name} = {

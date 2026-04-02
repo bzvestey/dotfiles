@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 let
   userHome = config.myConfig.user.home;
@@ -42,11 +42,11 @@ in
     };
   };
 
-  networking.firewall.allowedTCPPorts = [
+  networking.firewall.allowedTCPPorts = lib.mkIf (!pkgs.stdenv.isDarwin) [
     8384
     22000
   ];
-  networking.firewall.allowedUDPPorts = [
+  networking.firewall.allowedUDPPorts = lib.mkIf (!pkgs.stdenv.isDarwin) [
     22000
     21027
   ];
