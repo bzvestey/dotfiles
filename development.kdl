@@ -15,8 +15,8 @@ layout {
 
     tab name="AI" {
         pane split_direction="horizontal" {
-            pane name="claude-code" {
-                command "claude"
+            pane name="Agent" {
+                command "gemini"
             }
             pane name="Shell" {
                 command "zsh"

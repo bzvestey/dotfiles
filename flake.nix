@@ -140,6 +140,7 @@
             # AI tools
             opencode
             claude-code
+            gemini-cli
           ];
           shellHook = ''
             echo "Welcome to your Nix development environment!"
