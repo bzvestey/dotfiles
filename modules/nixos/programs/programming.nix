@@ -1,6 +1,11 @@
 # All the software needed when working with code that is not part of the base packages that are needed
 
-{ config, pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 
 {
   # Enable common container config files in /etc/containers (Linux-only)
@@ -16,6 +21,8 @@
       defaultNetwork.settings.dns_enabled = true;
     };
   };
+
+  programs.nix-ld.enable = true;
 
   environment.systemPackages =
     with pkgs;
