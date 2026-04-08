@@ -3,3 +3,4 @@ smb-secrets
 dotfiles/config/jj/repos/
 hakuneko.mangas.*
 .direnv/
+.DS_Store

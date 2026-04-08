@@ -74,14 +74,20 @@
         ]
       },
       "locked": {
-        "path": "./packages",
-        "type": "path"
+        "dir": "packages",
+        "lastModified": 1775530453,
+        "narHash": "sha256-okyAmZ7CT5CfEsfN1D9rnf5lZ6MQxDtfSIy0ZY7/sj4=",
+        "owner": "bzvestey",
+        "repo": "dotfiles",
+        "rev": "14baca886fe3dde2d2c203b3c1c98399f2922902",
+        "type": "github"
       },
       "original": {
-        "path": "./packages",
-        "type": "path"
-      },
-      "parent": []
+        "dir": "packages",
+        "owner": "bzvestey",
+        "repo": "dotfiles",
+        "type": "github"
+      }
     },
     "nix-darwin": {
       "inputs": {

@@ -50,6 +50,16 @@ This repository includes a `justfile` to simplify common maintenance tasks. Ensu
 just update && just switch
 ```
 
+## Mac setup items
+
+Fist install via [lix](https://lix.systems/install/), and then run the below commands once the normal setup process for this repo is finished to get all depenencies installed for the first time.
+
+```sh
+sudo mv /etc/nix/nix.conf{,.before-nix-darwin}
+sudo mv /etc/nix/nix.custom.conf{,.before-nix-darwin}
+sudo nix run --extra-experimental-features nix-command --extra-experimental-features flakes nix-darwin/master#darwin-rebuild -- switch --flake .#$HOST
+```
+
 ## 📂 Repository Structure
 
 *   **`hosts/`**: Per-machine configurations (entry points).

@@ -25,7 +25,7 @@
     };
 
     localpkgs = {
-      url = "./packages";
+      url = "github:bzvestey/dotfiles?dir=packages";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
@@ -91,27 +91,25 @@
       };
 
       # nix-darwin Configurations (macOS)
-      darwinConfigurations.macbook = nix-darwin.lib.darwinSystem {
+      darwinConfigurations.minastas-ai-mini = nix-darwin.lib.darwinSystem {
         system = darwinSystem;
         specialArgs = { inherit inputs; };
         modules = [
           { nixpkgs.overlays = [ localpkgs.overlays.default ]; }
-          ./hosts/darwin-macbook/default.nix
-
-          # Home Manager for Darwin
+          ./hosts/darwin-minastas-ai-mini/default.nix
           home-manager.darwinModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.backupFileExtension = "backup";
-            home-manager.extraSpecialArgs = { inherit inputs; };
             home-manager.users.${homeManagerUser} = homeManagerConfig;
+            home-manager.extraSpecialArgs = { inherit inputs; };
           }
         ];
       };
 
       # Expose the darwin configuration for standalone use
-      darwinPackages.${darwinSystem} = self.darwinConfigurations.macbook.pkgs;
+      darwinPackages.${darwinSystem} = self.darwinConfigurations.minastas-ai-mini.pkgs;
 
       # Formatters
       formatter.${linuxSystem} = nixpkgs.legacyPackages.${linuxSystem}.nixfmt-rfc-style;

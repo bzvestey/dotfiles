@@ -18,6 +18,10 @@ sync-backgrounds:
 switch host=`hostname`:
     sudo nixos-rebuild switch --flake .#{{host}}
 
+# Switch to the current system configuration on darwin
+switch-darwin host=`hostname`:
+  sudo nix run nix-darwin/master#darwin-rebuild -- switch --flake .#{{host}}
+
 # Setup as new boost config for the current system configuration
 boot host=`hostname`:
     sudo nixos-rebuild boot --flake .#{{host}}
