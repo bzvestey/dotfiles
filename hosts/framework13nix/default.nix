@@ -43,7 +43,16 @@
     ../../modules/nixos/services/flatpak.nix
     ../../modules/nixos/services/samba.nix
 
-    # Include program configurations
+    # Include nix program configurations
+    ../../modules/nix/programs/1password.nix
+    ../../modules/nix/programs/3dprinting.nix
+    ../../modules/nix/programs/browsers.nix
+    ../../modules/nix/programs/core.nix
+    ../../modules/nix/programs/files.nix
+    ../../modules/nix/programs/programming.nix
+    ../../modules/nix/programs/terminal.nix
+
+    # Include nixos program configurations
     ../../modules/nixos/programs/1password.nix
     ../../modules/nixos/programs/3dprinting.nix
     ../../modules/nixos/programs/browsers.nix

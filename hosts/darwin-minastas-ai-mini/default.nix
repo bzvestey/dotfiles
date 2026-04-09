@@ -10,17 +10,17 @@
     ../../modules/nix/core/secrets.nix
 
     # Include services configurations
-    # ../../modules/nixos/services/tailscale.nix
-    # ../../modules/nixos/services/syncthing.nix
+    # ../../modules/nix/services/tailscale.nix
+    # ../../modules/nix/services/syncthing.nix
 
-    # Include program configurations
-    # ../../modules/nixos/programs/1password.nix
-    # ../../modules/nixos/programs/3dprinting.nix
-    # ../../modules/nixos/programs/browsers.nix
-    # ../../modules/nixos/programs/core.nix
-    # ../../modules/nixos/programs/files.nix
-    # ../../modules/nixos/programs/programming.nix
-    # ../../modules/nixos/programs/terminal.nix
+    # Include nix program configurations
+    ../../modules/nix/programs/1password.nix
+    ../../modules/nix/programs/3dprinting.nix
+    ../../modules/nix/programs/browsers.nix
+    ../../modules/nix/programs/core.nix
+    ../../modules/nix/programs/files.nix
+    ../../modules/nix/programs/programming.nix
+    ../../modules/nix/programs/terminal.nix
   ];
 
   # List packages installed in system profile. To search by name, run:

@@ -10,14 +10,5 @@
     polkitPolicyOwners = lib.mkIf (!pkgs.stdenv.isDarwin) [ "bzvestey" ];
   };
 
-  environment.etc = lib.mkIf (!pkgs.stdenv.isDarwin) {
-    "1password/custom_allowed_browsers" = {
-      text = ''
-        firefox
-        chrome
-        vivaldi-bin
-      '';
-      mode = "0755";
-    };
-  };
+  environment.etc."1password/custom_allowed_browsers".mode = "0755";
 }

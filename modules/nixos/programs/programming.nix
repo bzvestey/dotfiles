@@ -9,7 +9,7 @@
 
 {
   # Enable common container config files in /etc/containers (Linux-only)
-  virtualisation = lib.mkIf (!pkgs.stdenv.isDarwin) {
+  virtualisation = {
     containers.enable = true;
     podman = {
       enable = true;
@@ -23,37 +23,4 @@
   };
 
   programs.nix-ld.enable = true;
-
-  environment.systemPackages =
-    with pkgs;
-    [
-      # Language
-      uv
-      go
-      rustup
-      clang
-      gcc
-      llvm
-
-      # Editors
-      zed-editor
-
-      # Dev tools
-      kubectl
-      jq
-      k9s
-      devenv
-    ]
-    ++ lib.optionals (!pkgs.stdenv.isDarwin) [
-      # Podman and containers
-      dive # look into docker image layers
-      podman-tui # status of containers in the terminal
-      podman-compose # start group of containers for dev
-    ];
-
-  # Setup devenv caches
-  nix.extraOptions = ''
-    extra-substituters = https://devenv.cachix.org
-    extra-trusted-public-keys = devenv.cachix.org-1:w1cLUi8dv3hnoSPGAuibQv+f9TZLr6cv/Hm9XgU50cw=
-  '';
 }

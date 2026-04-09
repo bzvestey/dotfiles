@@ -8,7 +8,6 @@
   programs.chromium.enable = true;
 
   environment.systemPackages = with pkgs; [
-    google-chrome
     vivaldi
   ];
 }
