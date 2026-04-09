@@ -11,11 +11,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nix-darwin = {
-      url = "github:LnL7/nix-darwin";
-      inputs.nixpkgs.follows = "nixpkgs-darwin";
-    };
-
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
     agenix = {
@@ -28,6 +23,27 @@
       url = "github:bzvestey/dotfiles?dir=packages";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # Darwin specific inputs ###############################
+
+    # nix-darwin packages
+    nix-darwin = {
+      url = "github:LnL7/nix-darwin";
+      inputs.nixpkgs.follows = "nixpkgs-darwin";
+    };
+
+    # Homebrew management via nix-darwin
+    nix-homebrew.url = "github:zhaofengli/nix-homebrew";
+
+    # Homebrew: Declarative tap management
+    homebrew-core = {
+      url = "github:homebrew/homebrew-core";
+      flake = false;
+    };
+    homebrew-cask = {
+      url = "github:homebrew/homebrew-cask";
+      flake = false;
+    };
   };
 
   outputs =
@@ -36,9 +52,13 @@
       nixpkgs,
       nixpkgs-darwin,
       home-manager,
-      nix-darwin,
       agenix,
       localpkgs,
+      # Darwin
+      nix-darwin,
+      nix-homebrew,
+      homebrew-core,
+      homebrew-cask,
       ...
     }@inputs:
     let

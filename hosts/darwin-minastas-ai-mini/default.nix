@@ -21,6 +21,9 @@
     ../../modules/nix/programs/files.nix
     ../../modules/nix/programs/programming.nix
     ../../modules/nix/programs/terminal.nix
+
+    # Include darwin homebrew configurations
+    ../../modules/nix-darwin/homebrew/core.nix
   ];
 
   # List packages installed in system profile. To search by name, run:
