@@ -12,6 +12,4 @@
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
-
-  environment.localBinInPath = true;
 }

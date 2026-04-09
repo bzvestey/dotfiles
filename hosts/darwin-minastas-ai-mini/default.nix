@@ -3,12 +3,12 @@
 {
 
   imports = [
-    # Import core modules
+    # Import core nix modules
     ../../modules/nix/core/base.nix
-    # ../../modules/nixos/core/locale.nix
+    ../../modules/nix/core/time.nix
+
     # ../../modules/nixos/core/secrets.nix
-    ../../modules/nixos/core/time.nix
-    # ../../modules/nixos/core/users.nix
+    ../../modules/nixos/core/users.nix
 
     # Include services configurations
     # ../../modules/nixos/services/tailscale.nix
@@ -35,19 +35,7 @@
     darwin-rebuild
   ];
 
-  # Allow using flakes
-  nix.settings.experimental-features = [
-    "nix-command"
-    "flakes"
-  ];
-
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
-
   users.users.bzvestey.home = /Users/bzvestey;
-  
-  # Auto upgrade nix package and the daemon service.
-  # ervices.nix-daemon.enable = true;
   
   # Set Git commit hash for darwin-version.
   system.configurationRevision = inputs.self.rev or inputs.self.dirtyRev or null;

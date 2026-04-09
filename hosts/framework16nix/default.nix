@@ -14,12 +14,15 @@
     # Include the results of the hardware scan.
     ./hardware.nix
 
-    # Include core configurations
-    ../../modules/nixos-linux/core/base.nix
+    # Import core nix modules
+    ../../modules/nix/core/base.nix
+    ../../modules/nix/core/time.nix
+
+    # Import core nixos modules
+    ../../modules/nixos/core/base.nix
     ../../modules/nixos/core/locale.nix
-    ../../modules/nixos-linux/core/networking.nix
+    ../../modules/nixos/core/networking.nix
     ../../modules/nixos/core/secrets.nix
-    ../../modules/nixos/core/time.nix
     ../../modules/nixos/core/users.nix
 
     # Include hardware configurations
