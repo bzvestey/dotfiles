@@ -32,5 +32,7 @@ in
         # thunderbird
       ];
     };
+
+    system.primaryUser = cfg.name;
   };
 }

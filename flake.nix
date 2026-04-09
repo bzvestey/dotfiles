@@ -126,6 +126,29 @@
             home-manager.users.${homeManagerUser} = homeManagerConfig;
             home-manager.extraSpecialArgs = { inherit inputs; };
           }
+          nix-homebrew.darwinModules.nix-homebrew
+          {
+            nix-homebrew = {
+              # Install Homebrew under the default prefix
+              enable = true;
+
+              # User owning the Homebrew prefix
+              user = homeManagerUser;
+
+              # Automatically migrate existing Homebrew installations
+              autoMigrate = true;
+
+              # Declarative tap management
+              taps = {
+                "homebrew/homebrew-core" = homebrew-core;
+                "homebrew/homebrew-cask" = homebrew-cask;
+              };
+
+              # Enable fully-declarative tap management.
+              # With mutableTaps disabled, taps can no longer be added imperatively with `brew tap`.
+              mutableTaps = false;
+            };
+          }
         ];
       };
 
