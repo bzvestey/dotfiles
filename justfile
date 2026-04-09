@@ -20,7 +20,7 @@ switch host=`hostname`:
 
 # Switch to the current system configuration on darwin
 switch-darwin host=`hostname`:
-  sudo nix run nix-darwin/master#darwin-rebuild -- switch --flake .#{{host}}
+  sudo darwin-rebuild switch --flake .#{{host}}
 
 # Setup as new boost config for the current system configuration
 boot host=`hostname`:

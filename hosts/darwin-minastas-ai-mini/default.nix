@@ -4,6 +4,7 @@
 
   imports = [
     # Import core modules
+    ../../modules/nix/core/base.nix
     # ../../modules/nixos/core/locale.nix
     # ../../modules/nixos/core/secrets.nix
     ../../modules/nixos/core/time.nix
@@ -31,6 +32,7 @@
     git
     jujutsu
     just
+    darwin-rebuild
   ];
 
   # Allow using flakes

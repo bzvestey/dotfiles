@@ -95,7 +95,7 @@
         system = darwinSystem;
         specialArgs = { inherit inputs; };
         modules = [
-          { nixpkgs.overlays = [ localpkgs.overlays.default ]; }
+          { nixpkgs.overlays = [ localpkgs.overlays.default nix-darwin.overlays.default ]; }
           ./hosts/darwin-minastas-ai-mini/default.nix
           home-manager.darwinModules.home-manager
           {
