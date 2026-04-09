@@ -16,6 +16,7 @@
     # Import core nix modules
     ../../modules/nix/core/base.nix
     ../../modules/nix/core/time.nix
+    ../../modules/nix/core/users.nix
 
     # Import core nixos modules
     ../../modules/nixos/core/base.nix
