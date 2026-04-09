@@ -17,31 +17,31 @@
     # Import core nix modules
     ../../modules/nix/core/base.nix
     ../../modules/nix/core/time.nix
+    ../../modules/nix/core/secrets.nix
     ../../modules/nix/core/users.nix
 
     # Import core nixos modules
     ../../modules/nixos/core/base.nix
     ../../modules/nixos/core/locale.nix
     ../../modules/nixos/core/networking.nix
-    ../../modules/nixos/core/secrets.nix
     ../../modules/nixos/core/users.nix
 
-    # Include hardware configurations
-    ../../modules/nixos-linux/hardware/audio.nix
-    ../../modules/nixos-linux/hardware/fingerprint-reader.nix
-    ../../modules/nixos-linux/hardware/graphics-nvidia+amd.nix
-    ../../modules/nixos-linux/hardware/keyboard.nix
-    ../../modules/nixos-linux/hardware/printer.nix
+    # Include hardware nixos configurations
+    ../../modules/nixos/hardware/audio.nix
+    ../../modules/nixos/hardware/fingerprint-reader.nix
+    ../../modules/nixos/hardware/graphics-nvidia+amd.nix
+    ../../modules/nixos/hardware/keyboard.nix
+    ../../modules/nixos/hardware/printer.nix
 
     # Include display manager configurations
-    ../../modules/nixos-linux/display/gnome.nix
-    ../../modules/nixos-linux/display/hyprland.nix
+    ../../modules/nixos/display/gnome.nix
+    ../../modules/nixos/display/hyprland.nix
 
     # Include services configurations
     ../../modules/nixos/services/tailscale.nix
     ../../modules/nixos/services/syncthing.nix
-    ../../modules/nixos-linux/services/flatpak.nix
-    ../../modules/nixos-linux/services/samba.nix
+    ../../modules/nixos/services/flatpak.nix
+    ../../modules/nixos/services/samba.nix
 
     # Include program configurations
     ../../modules/nixos/programs/1password.nix

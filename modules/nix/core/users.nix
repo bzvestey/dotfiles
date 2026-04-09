@@ -26,15 +26,7 @@ in
   config = {
     # Define a user account. Don't forget to set a password with 'passwd'.
     users.users.${cfg.name} = {
-      isNormalUser = true;
       description = "Bryan Vestey";
-      extraGroups = [
-        "networkmanager"
-        "wheel"
-        "users"
-        "bzvestey"
-        "dialout"
-      ];
       shell = pkgs.zsh;
       packages = with pkgs; [
         # thunderbird

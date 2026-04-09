@@ -7,8 +7,7 @@
     ../../modules/nix/core/base.nix
     ../../modules/nix/core/time.nix
     ../../modules/nix/core/users.nix
-
-    # ../../modules/nixos/core/secrets.nix
+    ../../modules/nix/core/secrets.nix
 
     # Include services configurations
     # ../../modules/nixos/services/tailscale.nix

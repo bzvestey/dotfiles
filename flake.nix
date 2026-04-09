@@ -97,6 +97,7 @@
         modules = [
           { nixpkgs.overlays = [ localpkgs.overlays.default nix-darwin.overlays.default ]; }
           ./hosts/darwin-minastas-ai-mini/default.nix
+          agenix.nixosModules.default
           home-manager.darwinModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
