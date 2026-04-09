@@ -171,7 +171,7 @@
           ];
           shellHook = ''
             echo "Welcome to your macOS Nix development environment!"
-            zellij -l ./development.kdl
+            # zellij -l ./development.kdl
           '';
         };
     };
