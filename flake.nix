@@ -156,8 +156,8 @@
       darwinPackages.${darwinSystem} = self.darwinConfigurations.minastas-ai-mini.pkgs;
 
       # Formatters
-      formatter.${linuxSystem} = nixpkgs.legacyPackages.${linuxSystem}.nixfmt-rfc-style;
-      formatter.${darwinSystem} = nixpkgs-darwin.legacyPackages.${darwinSystem}.nixfmt-rfc-style;
+      formatter.${linuxSystem} = nixpkgs.legacyPackages.${linuxSystem}.nixfmt;
+      formatter.${darwinSystem} = nixpkgs-darwin.legacyPackages.${darwinSystem}.nixfmt;
 
       # Development Shells
       devShells.${linuxSystem}.default =
@@ -171,7 +171,7 @@
           buildInputs = with pkgs; [
             # Nix tools
             nil
-            nixfmt-rfc-style
+            nixfmt
             statix
             deadnix
             agenix.packages.${linuxSystem}.default
@@ -201,7 +201,7 @@
           buildInputs = with pkgs; [
             # Nix tools
             nil
-            nixfmt-rfc-style
+            nixfmt
             statix
             deadnix
 
