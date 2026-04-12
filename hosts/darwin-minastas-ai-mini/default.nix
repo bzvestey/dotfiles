@@ -1,4 +1,9 @@
-{ config, pkgs, inputs, ... }:
+{
+  config,
+  pkgs,
+  inputs,
+  ...
+}:
 
 {
 
@@ -8,6 +13,9 @@
     ../../modules/nix/core/time.nix
     ../../modules/nix/core/users.nix
     ../../modules/nix/core/secrets.nix
+
+    # Import core nix-darwin modules
+    ../../modules/nix-darwin/core/users.nix
 
     # Include services configurations
     # ../../modules/nix/services/tailscale.nix
@@ -38,7 +46,7 @@
   ];
 
   users.users.bzvestey.home = /Users/bzvestey;
-  
+
   # Set Git commit hash for darwin-version.
   system.configurationRevision = inputs.self.rev or inputs.self.dirtyRev or null;
 

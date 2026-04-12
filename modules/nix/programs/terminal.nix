@@ -1,4 +1,9 @@
-{ config, pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 
 {
   # Install direnv
@@ -10,6 +15,5 @@
   # Set up tmux
   programs.tmux = {
     enable = true;
-    enableMouse = true;
   };
 }

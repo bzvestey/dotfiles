@@ -28,11 +28,9 @@ in
     users.users.${cfg.name} = {
       description = "Bryan Vestey";
       shell = pkgs.zsh;
-      packages = with pkgs; [
-        # thunderbird
-      ];
+      # packages = with pkgs; [
+      #   # thunderbird
+      # ];
     };
-
-    system.primaryUser = cfg.name;
   };
 }
