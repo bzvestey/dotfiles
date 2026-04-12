@@ -73,7 +73,7 @@
       # NixOS Configurations (Linux)
       nixosConfigurations.framework16nix = nixpkgs.lib.nixosSystem {
         system = linuxSystem;
-        specialArgs = { inherit inputs; };
+        specialArgs = { inherit inputs self; };
         modules = [
           { nixpkgs.overlays = [ localpkgs.overlays.default ]; }
           ./hosts/framework16nix/default.nix
@@ -113,11 +113,17 @@
       # nix-darwin Configurations (macOS)
       darwinConfigurations.minastas-ai-mini = nix-darwin.lib.darwinSystem {
         system = darwinSystem;
-        specialArgs = { inherit inputs; };
+        specialArgs = { inherit inputs self; };
         modules = [
-          { nixpkgs.overlays = [ localpkgs.overlays.default nix-darwin.overlays.default ]; }
+          {
+            nixpkgs.overlays = [
+              localpkgs.overlays.default
+              nix-darwin.overlays.default
+            ];
+          }
           ./hosts/darwin-minastas-ai-mini/default.nix
           agenix.nixosModules.default
+          nix-homebrew.darwinModules.nix-homebrew
           home-manager.darwinModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
@@ -125,29 +131,6 @@
             home-manager.backupFileExtension = "backup";
             home-manager.users.${homeManagerUser} = homeManagerConfig;
             home-manager.extraSpecialArgs = { inherit inputs; };
-          }
-          nix-homebrew.darwinModules.nix-homebrew
-          {
-            nix-homebrew = {
-              # Install Homebrew under the default prefix
-              enable = true;
-
-              # User owning the Homebrew prefix
-              user = homeManagerUser;
-
-              # Automatically migrate existing Homebrew installations
-              autoMigrate = true;
-
-              # Declarative tap management
-              taps = {
-                "homebrew/homebrew-core" = homebrew-core;
-                "homebrew/homebrew-cask" = homebrew-cask;
-              };
-
-              # Enable fully-declarative tap management.
-              # With mutableTaps disabled, taps can no longer be added imperatively with `brew tap`.
-              mutableTaps = false;
-            };
           }
         ];
       };

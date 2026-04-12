@@ -65,20 +65,13 @@ in
     #   org.gradle.console=verbose
     #   org.gradle.daemon.idletimeout=3600000
     # '';
-    ".ssh/config".source = ../../dotfiles/ssh/config;
     ".tmux.conf".source = ../../dotfiles/tmux/tmux.conf;
 
     "${config.xdg.configHome}/cosmic".source = ../../dotfiles/config/cosmic;
-    "${config.xdg.configHome}/ghostty".source = ../../dotfiles/config/ghostty;
     "${config.xdg.configHome}/hypr".source = ../../dotfiles/config/hypr;
-    "${config.xdg.configHome}/k9s".source = ../../dotfiles/config/k9s;
     "${config.xdg.configHome}/smug".source = ../../dotfiles/config/smug;
     "${config.xdg.configHome}/zed".source = ../../dotfiles/config/zed;
     "${config.xdg.configHome}/zellij".source = ../../dotfiles/config/zellij;
-    "${config.xdg.configHome}/jj" = {
-      recursive = true;
-      source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dev/dotfiles/dotfiles/config/jj";
-    };
   };
 
   # Home Manager controlled environmebnt variables
@@ -167,5 +160,119 @@ in
       redhat.vscode-yaml
       antyos.openscad
     ];
+  };
+
+  programs.git = {
+    enable = true;
+
+    lfs.enable = true;
+
+    ignores = [ "**/.DS_STORE" ];
+
+    settings = {
+      user = {
+        name = "Bryan Vestey";
+        email = "bryan@vestey.dev";
+      };
+      github = {
+        user = "bzvestey";
+      };
+      init = {
+        defaultBranch = "main";
+      };
+    };
+  };
+
+  programs.ghostty = {
+    enable = true;
+    enableBashIntegration = true;
+    enableZshIntegration = true;
+    settings = {
+      font-family = "CommitMono Nerd Font";
+      theme = "Dracula+";
+    };
+  };
+
+  programs.ssh = {
+    enable = true;
+    enableDefaultConfig = false;
+    matchBlocks = {
+      "*" = {
+        addKeysToAgent = "yes";
+      };
+    };
+  };
+
+  programs.jujutsu = {
+    enable = true;
+    settings = {
+      name = "Bryan Vestey";
+      email = "bryan@vestey.dev";
+    };
+  };
+
+  programs.k9s = {
+    enable = true;
+    aliases = {
+      dp = "deployments";
+      sec = "v1/secrets";
+      jo = "jobs";
+      cr = "clusterroles";
+      crb = "clusterrolebindings";
+      ro = "roles";
+      rb = "rolebindings";
+      np = "networkpolicies";
+    };
+    settings = {
+      liveViewAutoRefresh = "false";
+      screenDumpDir = "/home/bzvestey/.local/state/k9s/screen-dumps";
+      refreshRate = "2";
+      maxConnRetry = "5";
+      readOnly = "false";
+      noExitOnCtrlC = "false";
+      ui = {
+        enableMouse = "false";
+        headless = "false";
+        logoless = "false";
+        crumbsless = "false";
+        reactive = "false";
+        noIcons = "false";
+        defaultsToFullScreen = "false";
+      };
+      skipLatestRevCheck = "false";
+      disablePodCounting = "false";
+      shellPod = {
+        image = "busybox:1.35.0";
+        namespace = "default";
+        limits = {
+          cpu = "100m";
+          memory = "100Mi";
+        };
+      };
+      imageScans = {
+        enable = "false";
+        exclusions = {
+          namespaces = "[]";
+          labels = "{}";
+        };
+      };
+      logger = {
+        tail = "100";
+        buffer = "5000";
+        sinceSeconds = "-1";
+        textWrap = "false";
+        showTime = "false";
+      };
+      thresholds = {
+        cpu = {
+          critical = "90";
+          warn = "70";
+        };
+        memory = {
+          critical = "90";
+          warn = "70";
+        };
+      };
+    };
   };
 }

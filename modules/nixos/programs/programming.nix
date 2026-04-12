@@ -1,11 +1,6 @@
 # All the software needed when working with code that is not part of the base packages that are needed
 
-{
-  config,
-  pkgs,
-  lib,
-  ...
-}:
+{ ... }:
 
 {
   # Enable common container config files in /etc/containers (Linux-only)

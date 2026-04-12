@@ -6,6 +6,7 @@
 }:
 
 {
+  # You can use https://github.com/bgub/nix-macos-starter/tree/main as a good base for changes here
 
   imports = [
     # Import core nix modules
@@ -15,6 +16,7 @@
     ../../modules/nix/core/secrets.nix
 
     # Import core nix-darwin modules
+    ../../modules/nix-darwin/core/settings.nix
     ../../modules/nix-darwin/core/users.nix
 
     # Include services configurations

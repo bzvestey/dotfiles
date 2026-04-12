@@ -1,28 +1,29 @@
-{ config, pkgs, lib, ... }:
+{
+  pkgs,
+  ...
+}:
 
 {
-  environment.systemPackages =
-    with pkgs;
-    [
-      # Version control needed to pull down configs
-      git
-      jujutsu
+  environment.systemPackages = with pkgs; [
+    # Version control needed to pull down configs
+    git
+    jujutsu
 
-      # Editor
-      neovim
+    # Editor
+    neovim
 
-      # Nix language servers
-      nixd
-      nil
+    # Nix language servers
+    nixd
+    nil
 
-      # Running commands
-      just
+    # Running commands
+    just
 
-      # EPub/lcpl reader
-      thorium-reader
+    # EPub/lcpl reader
+    thorium-reader
 
-      # Utilites for working with devices
-      pciutils
-      usbutils
-    ];
+    # Utilites for working with devices
+    pciutils
+    usbutils
+  ];
 }

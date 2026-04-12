@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
   # Allow using flakes
@@ -12,4 +12,10 @@
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
+
+  fonts.packages = with pkgs; [
+    noto-fonts
+    nerd-fonts.commit-mono
+    cascadia-code
+  ];
 }
