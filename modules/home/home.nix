@@ -206,8 +206,10 @@ in
   programs.jujutsu = {
     enable = true;
     settings = {
-      name = "Bryan Vestey";
-      email = "bryan@vestey.dev";
+      user = {
+        name = "Bryan Vestey";
+        email = "bryan@vestey.dev";
+      };
     };
   };
 
