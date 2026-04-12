@@ -22,6 +22,8 @@
     # Hybrid graphics with PRIME offload for better battery life
     # AMD iGPU by default, NVIDIA dGPU on demand via nvidia-offload command
     prime = {
+      sync.enable = true;
+      offload.enable = false;
       # WARNING: These defaults may not match your system!
       # Bus IDs vary depending on installed expansion cards and NVMe drives.
       # You MUST override these values - see README.md for instructions.
