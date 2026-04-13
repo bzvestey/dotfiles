@@ -277,4 +277,17 @@ in
       };
     };
   };
+
+  # TUI based file manager
+  programs.yazi = {
+    enable = true;
+    enableZshIntegration = true;
+    enableBashIntegration = true;
+    shellWrapperName = "y";
+    # This might be needed if I continue to have extraction issues
+    # package = (yazi.override { _7zz = _7zz-rar; });
+    extraPackages = with pkgs; [
+      _7zz-rar
+    ];
+  };
 }

@@ -56,7 +56,6 @@
     ../../modules/nixos/programs/3dprinting.nix
     ../../modules/nixos/programs/browsers.nix
     ../../modules/nixos/programs/core.nix
-    ../../modules/nixos/programs/files.nix
     ../../modules/nixos/programs/programming.nix
     ../../modules/nixos/programs/terminal.nix
   ];
