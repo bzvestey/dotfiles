@@ -15,6 +15,10 @@
     gcc
     llvm
 
+    # Cloud services
+    awscli2
+    garage_2
+
     # Editors
     zed-editor
 

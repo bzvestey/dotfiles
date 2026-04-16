@@ -108,6 +108,8 @@ in
       size = 100000;
     };
 
+    envExtra = "GARAGE_CONFIG_FILE=\"${homeDir}/.config/garage/config.toml\";\n";
+
     oh-my-zsh = {
       enable = true;
       custom = "${../../dotfiles/zsh/custom}";
