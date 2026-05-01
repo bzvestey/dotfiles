@@ -48,6 +48,7 @@
     ../../modules/nix/programs/browsers.nix
     ../../modules/nix/programs/core.nix
     ../../modules/nix/programs/files.nix
+    ../../modules/nix/programs/mail.nix
     ../../modules/nix/programs/programming.nix
     ../../modules/nix/programs/terminal.nix
 
