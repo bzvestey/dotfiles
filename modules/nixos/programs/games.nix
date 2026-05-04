@@ -1,7 +1,7 @@
-{ ... }:
+{ pkgs, ... }:
 
 {
-  enavironment.systemPackages = with pkgs; {
+  environment.systemPackages = with pkgs; [
     lutris
-  };
+  ];
 }

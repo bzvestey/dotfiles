@@ -53,6 +53,7 @@ in
 
   xdg.userDirs = {
     enable = true;
+    setSessionVariables = true;
     projects = "${config.home.homeDirectory}/dev";
   };
 
