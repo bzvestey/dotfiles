@@ -52,13 +52,14 @@
     ../../modules/nix/programs/programming.nix
     ../../modules/nix/programs/terminal.nix
 
-    # Include program configurations
+    # Include nixos program configurations
     ../../modules/nixos/programs/1password.nix
     ../../modules/nixos/programs/3dprinting.nix
     ../../modules/nixos/programs/browsers.nix
     ../../modules/nixos/programs/core.nix
     ../../modules/nixos/programs/programming.nix
     ../../modules/nixos/programs/terminal.nix
+    ../../modules/nixos/programs/games.nix
   ];
 
   boot.initrd.luks.devices."luks-f8c54aa1-9fa7-41ca-bc09-cacb852ad36b".device =
