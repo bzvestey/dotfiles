@@ -6,6 +6,11 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-darwin.url = "github:nixos/nixpkgs/nixpkgs-unstable";
 
+    llm-agents = {
+      url = "github:numtide/llm-agents.nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -51,6 +56,7 @@
       self,
       nixpkgs,
       nixpkgs-darwin,
+      llm-agents,
       home-manager,
       agenix,
       localpkgs,
@@ -75,7 +81,7 @@
         system = linuxSystem;
         specialArgs = { inherit inputs self; };
         modules = [
-          { nixpkgs.overlays = [ localpkgs.overlays.default ]; }
+          { nixpkgs.overlays = [ localpkgs.overlays.default llm-agents.overlays.default ]; }
           ./hosts/framework16nix/default.nix
 
           # Agenix
@@ -97,7 +103,7 @@
         system = linuxSystem;
         specialArgs = { inherit inputs; };
         modules = [
-          { nixpkgs.overlays = [ localpkgs.overlays.default ]; }
+          { nixpkgs.overlays = [ localpkgs.overlays.default llm-agents.overlays.default ]; }
           ./hosts/framework13nix/default.nix
           agenix.nixosModules.default
           home-manager.nixosModules.home-manager
@@ -118,6 +124,7 @@
           {
             nixpkgs.overlays = [
               localpkgs.overlays.default
+              llm-agents.overlays.default
               nix-darwin.overlays.default
             ];
           }
