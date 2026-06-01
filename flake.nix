@@ -81,7 +81,12 @@
         system = linuxSystem;
         specialArgs = { inherit inputs self; };
         modules = [
-          { nixpkgs.overlays = [ localpkgs.overlays.default llm-agents.overlays.default ]; }
+          {
+            nixpkgs.overlays = [
+              localpkgs.overlays.default
+              llm-agents.overlays.default
+            ];
+          }
           ./hosts/framework16nix/default.nix
 
           # Agenix
@@ -103,13 +108,19 @@
         system = linuxSystem;
         specialArgs = { inherit inputs; };
         modules = [
-          { nixpkgs.overlays = [ localpkgs.overlays.default llm-agents.overlays.default ]; }
+          {
+            nixpkgs.overlays = [
+              localpkgs.overlays.default
+              llm-agents.overlays.default
+            ];
+          }
           ./hosts/framework13nix/default.nix
           agenix.nixosModules.default
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
+            home-manager.backupFileExtension = "backup";
             home-manager.users.${homeManagerUser} = homeManagerConfig;
             home-manager.extraSpecialArgs = { inherit inputs; };
           }

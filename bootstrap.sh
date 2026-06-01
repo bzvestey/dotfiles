@@ -187,6 +187,7 @@ EOF
         echo "          {"
         echo "            home-manager.useGlobalPkgs = true;"
         echo "            home-manager.useUserPackages = true;"
+        echo "            home-manager.backupFileExtension = \"backup\";"
         echo "            home-manager.users.\${homeManagerUser} = homeManagerConfig;"
         echo "            home-manager.extraSpecialArgs = { inherit inputs; };"
         echo "          }"
