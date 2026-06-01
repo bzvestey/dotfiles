@@ -75,7 +75,6 @@ in
     "${config.xdg.configHome}/cosmic".source = ../../dotfiles/config/cosmic;
     "${config.xdg.configHome}/hypr".source = ../../dotfiles/config/hypr;
     "${config.xdg.configHome}/smug".source = ../../dotfiles/config/smug;
-    "${config.xdg.configHome}/zed".source = ../../dotfiles/config/zed;
     "${config.xdg.configHome}/zellij".source = ../../dotfiles/config/zellij;
   };
 
@@ -291,10 +290,37 @@ in
     enableZshIntegration = true;
     enableBashIntegration = true;
     shellWrapperName = "y";
-    # This might be needed if I continue to have extraction issues
-    # package = (yazi.override { _7zz = _7zz-rar; });
+    package = (pkgs.yazi.override { _7zz = pkgs._7zz-rar; });
     extraPackages = with pkgs; [
       _7zz-rar
     ];
+  };
+
+  programs.zed-editor = {
+    enable = true;
+
+    mutableUserSettings = true;
+
+    userSettings = {
+      project_panel = {
+        dock = "left";
+      };
+      outline_panel = {
+        dock = "left";
+      };
+      collaboration_panel = {
+        dock = "left";
+      };
+      agent = {
+        dock = "right";
+        sidebar_side = "right";
+        favorite_models = [ ];
+        model_parameters = [ ];
+      };
+      git_panel = {
+        dock = "left";
+        sort_by_path = false;
+      };
+    };
   };
 }
