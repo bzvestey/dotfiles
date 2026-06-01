@@ -4,7 +4,7 @@
   environment.systemPackages = with pkgs.llm-agents; [
     # Coding tools
     claude-code
-    gemini-cli
+    antigravity-cli
     opencode
 
     # Agents
