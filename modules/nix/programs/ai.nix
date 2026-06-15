@@ -8,14 +8,11 @@
     opencode
 
     # Agents
-    (zeroclaw.overrideAttrs (old: {
-      cargoBuildFeatures = (old.cargoBuildFeatures or []) ++ [ "channel-matrix" ];
-      postPatch = (old.postPatch or "") + ''
-        sed -i '1s/^/#![recursion_limit = "512"]\n/' \
-          "$cargoDepsCopy/source-registry-0/matrix-sdk-0.16.0/src/lib.rs"
-        sed -i '1s/^/#![recursion_limit = "512"]\n/' \
-          crates/zeroclaw-channels/src/lib.rs
-      '';
-    }))
+    zeroclaw
+  ];
+
+  nix.settings.extra-substituters = [ "https://cache.numtide.com" ];
+  nix.settings.extra-trusted-public-keys = [
+    "niks3.numtide.com-1:DTx8wZduET09hRmMtKdQDxNNthLQETkc/yaX7M4qK0g="
   ];
 }
