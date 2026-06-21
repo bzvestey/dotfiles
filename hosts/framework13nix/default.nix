@@ -45,7 +45,7 @@
 
     # Include nix program configurations
     ../../modules/nix/programs/1password.nix
-    ../../modules/nix/programs/3dprinting.nix
+    # ../../modules/nix/programs/3dprinting.nix
     ../../modules/nix/programs/browsers.nix
     ../../modules/nix/programs/core.nix
     ../../modules/nix/programs/files.nix
@@ -54,7 +54,7 @@
 
     # Include nixos program configurations
     ../../modules/nixos/programs/1password.nix
-    ../../modules/nixos/programs/3dprinting.nix
+    # ../../modules/nixos/programs/3dprinting.nix
     ../../modules/nixos/programs/browsers.nix
     ../../modules/nixos/programs/core.nix
     ../../modules/nixos/programs/programming.nix
