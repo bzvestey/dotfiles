@@ -69,6 +69,7 @@
 
   environment.systemPackages = [
     pkgs.localpkgs.hakuneko-nightly
+    pkgs.xivlauncher
   ];
 
   system.stateVersion = "25.05";
