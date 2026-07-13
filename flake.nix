@@ -106,12 +106,11 @@
 
       nixosConfigurations.framework13nix = nixpkgs.lib.nixosSystem {
         system = linuxSystem;
-        specialArgs = { inherit inputs; };
+        specialArgs = { inherit inputs self; };
         modules = [
           {
             nixpkgs.overlays = [
               localpkgs.overlays.default
-              llm-agents.overlays.default
             ];
           }
           ./hosts/framework13nix/default.nix
@@ -121,8 +120,8 @@
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.backupFileExtension = "backup";
-            home-manager.users.${homeManagerUser} = homeManagerConfig;
             home-manager.extraSpecialArgs = { inherit inputs; };
+            home-manager.users.${homeManagerUser} = homeManagerConfig;
           }
         ];
       };

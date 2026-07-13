@@ -157,11 +157,11 @@
     "homebrew-core": {
       "flake": false,
       "locked": {
-        "lastModified": 1783919365,
-        "narHash": "sha256-nl2ChxkREU2jnqSTywfTDhD4twYI1p8xNCV/n2mruu0=",
+        "lastModified": 1783920491,
+        "narHash": "sha256-MOObkmW9zfYrD+s/Gdje6YbiY4evBGw9TxKjfJriEYA=",
         "owner": "homebrew",
         "repo": "homebrew-core",
-        "rev": "b585cb4334a88956d57d5bfa82ccdeb3317258b9",
+        "rev": "9b9291bdc6c51bb2dc3fb6457fbb60c44406336c",
         "type": "github"
       },
       "original": {
@@ -202,11 +202,11 @@
       },
       "locked": {
         "dir": "packages",
-        "lastModified": 1782357936,
-        "narHash": "sha256-by+rB5ZrgxgrzXbcsnej2LOy/CAK5G7Z3nHi8hOWMZs=",
+        "lastModified": 1783920423,
+        "narHash": "sha256-sBDAqDfIOWfz7gLUCjxQhXRF3m567Gy47yaYbJWs47A=",
         "owner": "bzvestey",
         "repo": "dotfiles",
-        "rev": "739a1a055cc5ac11688cb16dec14eec44f719d00",
+        "rev": "69b7fd2aaa9fc8f0d8aa5b1ff8e013e78032e96b",
         "type": "github"
       },
       "original": {
