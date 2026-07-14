@@ -84,7 +84,7 @@
           {
             nixpkgs.overlays = [
               localpkgs.overlays.default
-              llm-agents.overlays.default
+              llm-agents.overlays.shared-nixpkgs
             ];
           }
           ./hosts/framework16nix/default.nix
@@ -111,6 +111,7 @@
           {
             nixpkgs.overlays = [
               localpkgs.overlays.default
+              llm-agents.overlays.shared-nixpkgs
             ];
           }
           ./hosts/framework13nix/default.nix
@@ -134,7 +135,7 @@
           {
             nixpkgs.overlays = [
               localpkgs.overlays.default
-              llm-agents.overlays.default
+              llm-agents.overlays.shared-nixpkgs
               nix-darwin.overlays.default
             ];
           }

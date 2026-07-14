@@ -33,8 +33,9 @@
     ../../modules/nixos/hardware/printer.nix
 
     # Include display manager configurations
-    ../../modules/nixos/display/gnome.nix
-    ../../modules/nixos/display/hyprland.nix
+    #../../modules/nixos/display/gnome.nix
+    #../../modules/nixos/display/hyprland.nix
+    ../../modules/nixos/display/plasma.nix
 
     # Include services configurations
     ../../modules/nixos/services/tailscale.nix
