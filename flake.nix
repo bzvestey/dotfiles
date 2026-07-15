@@ -64,7 +64,6 @@
       nixpkgs-darwin,
       llm-agents,
       home-manager,
-      plasma-manager,
       agenix,
       localpkgs,
       # Darwin
@@ -104,7 +103,6 @@
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.sharedModules = [ plasma-manager.homeModules.plasma-managher ];
             home-manager.backupFileExtension = "backup";
             home-manager.extraSpecialArgs = { inherit inputs; };
             home-manager.users.${homeManagerUser} = homeManagerConfig;
