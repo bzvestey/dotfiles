@@ -58,7 +58,12 @@ in
       {
         location = "right";
         widgets = [
-          "org.kde.plasma.kickoff"
+          {
+            kickoff = {
+              sortAlphabetically = true;
+              icon = "nix-snowflake-white";
+            };
+          }
           # icon-only task manager (the labelled one looks poor when vertical)
           {
             iconTasks.launchers = [
