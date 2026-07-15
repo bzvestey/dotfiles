@@ -1,4 +1,5 @@
 {
+  config,
   inputs,
   lib,
   pkgs,
@@ -23,6 +24,12 @@ in
       clickItemTo = "select";
       lookAndFeel = "org.kde.breezedark.desktop";
       colorScheme = "BreezeDark";
+
+      # Rotate the wallpaper once an hour (interval is in seconds).
+      wallpaperSlideShow = {
+        path = "${config.home.homeDirectory}/Pictures/backgrounds";
+        interval = 3600;
+      };
     };
 
     kwin = {
