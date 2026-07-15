@@ -24,6 +24,11 @@ in
       clickItemTo = "select";
       lookAndFeel = "org.kde.breezedark.desktop";
       colorScheme = "BreezeDark";
+      cursor = {
+        theme = "Bibata-Modern-Ice";
+        size = 32;
+      };
+      iconTheme = "Papirus-Dark";
 
       # Rotate the wallpaper once an hour (interval is in seconds).
       wallpaperSlideShow = {
@@ -54,6 +59,7 @@ in
           "org.kde.plasma.systemtray"
           {
             digitalClock = {
+              calendar.firstDayOfWeek = "sunday";
               time.format = "24h";
             };
           }
@@ -80,6 +86,38 @@ in
         naturalScroll = true;
       }
     ];
+
+    # Power management. turnOffDisplay.idleTimeout is in seconds.
+    powerdevil = {
+      AC = {
+        powerButtonAction = "hibernate";
+        turnOffDisplay = {
+          idleTimeout = 1800; # 30 minutes on AC
+          idleTimeoutWhenLocked = "immediately";
+        };
+      };
+      battery = {
+        powerButtonAction = "hibernate";
+        turnOffDisplay = {
+          idleTimeout = 600; # 10 minutes on battery
+          idleTimeoutWhenLocked = "immediately";
+        };
+      };
+      lowBattery = {
+        powerButtonAction = "hibernate";
+      };
+      # Hibernate automatically when the battery gets critically low.
+      batteryLevels.criticalAction = "hibernate";
+    };
+
+    # Screen locking. KDE's auto-lock timeout is a single global value (no
+    # per-power-profile split), set to 30 minutes here.
+    kscreenlocker = {
+      autoLock = true;
+      lockOnResume = true;
+      timeout = 30;
+      appearance.wallpaper = "${config.home.homeDirectory}/Pictures/backgrounds/Maomao.jpg";
+    };
 
     # Keep whatever isn't declared here under manual control so the desktop
     # stays usable while this config grows.
