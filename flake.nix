@@ -16,6 +16,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    plasma-manager = {
+      url = "github:nix-community/plasma-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
+    };
+
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
     agenix = {
@@ -58,6 +64,7 @@
       nixpkgs-darwin,
       llm-agents,
       home-manager,
+      plasma-manager,
       agenix,
       localpkgs,
       # Darwin
@@ -97,6 +104,7 @@
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
+            home-manager.sharedModules = [ plasma-manager.homeModules.plasma-managher ];
             home-manager.backupFileExtension = "backup";
             home-manager.extraSpecialArgs = { inherit inputs; };
             home-manager.users.${homeManagerUser} = homeManagerConfig;

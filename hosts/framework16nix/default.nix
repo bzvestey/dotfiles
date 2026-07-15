@@ -27,6 +27,7 @@
 
     # Include hardware nixos configurations
     ../../modules/nixos/hardware/audio.nix
+    ../../modules/nixos/hardware/bluetooth.nix
     ../../modules/nixos/hardware/fingerprint-reader.nix
     ../../modules/nixos/hardware/graphics-nvidia+amd.nix
     ../../modules/nixos/hardware/keyboard.nix
