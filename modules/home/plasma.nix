@@ -35,7 +35,13 @@ in
         path = "${config.home.homeDirectory}/Pictures/backgrounds";
         interval = 3600;
       };
+
+      # "Scaled, keep proportions" in the KDE wallpaper dropdown.
+      wallpaperFillMode = "preserveAspectFit";
     };
+
+    # Always boot into a clean session instead of reopening last session's windows.
+    session.sessionRestore.restoreOpenApplicationsOnLogin = "startWithEmptySession";
 
     kwin = {
       virtualDesktops = {
@@ -54,7 +60,15 @@ in
         widgets = [
           "org.kde.plasma.kickoff"
           # icon-only task manager (the labelled one looks poor when vertical)
-          "org.kde.plasma.icontasks"
+          {
+            iconTasks.launchers = [
+              "applications:com.mitchellh.ghostty.desktop"
+              "applications:firefox.desktop"
+              "applications:vivaldi-stable.desktop"
+              "applications:dev.zed.Zed.desktop"
+              "applications:xivlauncher.desktop"
+            ];
+          }
           "org.kde.plasma.panelspacer"
           "org.kde.plasma.systemtray"
           {
@@ -118,6 +132,11 @@ in
       timeout = 30;
       appearance.wallpaper = "${config.home.homeDirectory}/Pictures/backgrounds/Maomao.jpg";
     };
+
+    # plasma-manager has no fill-mode option for the lock screen, so set it on
+    # the same config group it writes the wallpaper to. FillMode 1 =
+    # preserveAspectFit, i.e. "Scaled, keep proportions".
+    configFile.kscreenlockerrc."Greeter/Wallpaper/org.kde.image/General".FillMode = 1;
 
     # Keep whatever isn't declared here under manual control so the desktop
     # stays usable while this config grows.
