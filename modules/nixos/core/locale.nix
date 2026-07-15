@@ -13,6 +13,7 @@
     LC_NUMERIC = "en_US.UTF-8";
     LC_PAPER = "en_US.UTF-8";
     LC_TELEPHONE = "en_US.UTF-8";
-    LC_TIME = "en_US.UTF-8";
+    # 24-hour time for all apps (en_CA also gives ISO YYYY-MM-DD dates).
+    LC_TIME = "en_CA.UTF-8";
   };
 }
