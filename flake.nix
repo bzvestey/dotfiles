@@ -77,9 +77,10 @@
       linuxSystem = "x86_64-linux";
       darwinSystem = "aarch64-darwin";
 
-      # Common home manager configuration
+      # Common home manager configuration. Each host imports its own home.nix,
+      # which selects the home-manager modules it wants and sets the per-host
+      # user identity (username, home directory, full name, email).
       homeManagerUser = "bzvestey";
-      homeManagerConfig = import ./modules/home/home.nix;
     in
     {
       # NixOS Configurations (Linux)
@@ -105,7 +106,7 @@
             home-manager.useUserPackages = true;
             home-manager.backupFileExtension = "backup";
             home-manager.extraSpecialArgs = { inherit inputs; };
-            home-manager.users.${homeManagerUser} = homeManagerConfig;
+            home-manager.users.${homeManagerUser} = import ./hosts/framework16nix/home.nix;
           }
         ];
       };
@@ -128,7 +129,7 @@
             home-manager.useUserPackages = true;
             home-manager.backupFileExtension = "backup";
             home-manager.extraSpecialArgs = { inherit inputs; };
-            home-manager.users.${homeManagerUser} = homeManagerConfig;
+            home-manager.users.${homeManagerUser} = import ./hosts/framework13nix/home.nix;
           }
         ];
       };
@@ -153,7 +154,7 @@
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.backupFileExtension = "backup";
-            home-manager.users.${homeManagerUser} = homeManagerConfig;
+            home-manager.users.${homeManagerUser} = import ./hosts/darwin-minastas-ai-mini/home.nix;
             home-manager.extraSpecialArgs = { inherit inputs; };
           }
         ];
