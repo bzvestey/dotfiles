@@ -15,7 +15,9 @@
   # Note: check https://github.com/NixOS/nixos-hardware/blob/master/framework/16-inch/amd-ai-300-series/nvidia/default.nix for better settings at some point
 
   hardware.nvidia = {
-    open = true;
+    open = false; # The propietary drivers have stabler power management support for multi-gpu setups.
+    package = config.boot.kernelPackages.nvidiaPackages.stable;
+
     modesetting.enable = true;
     nvidiaSettings = true;
 
@@ -34,6 +36,7 @@
 
     # Power management for hybrid graphics
     powerManagement.enable = lib.mkDefault true;
+    powerManagement.finegrained = false;
   };
 
   services.xserver.videoDrivers = [
