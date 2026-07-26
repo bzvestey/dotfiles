@@ -21,19 +21,19 @@
 
       username = {
         show_always = true;
-        style_user = "bold cyan";
+        style_user = "bold purple";
         style_root = "bold red";
         format = "[$user]($style)";
       };
 
       hostname = {
         ssh_only = false;
-        style = "bold blue";
+        style = "bold purple";
         format = ":[$hostname]($style) ";
       };
 
       directory = {
-        format = "[\\[](bold red)[$path][\\]](bold red) ";
+        format = "[$path]";
         truncation_length = 24;
         truncate_to_repo = false;
         truncation_symbol = ".../";
@@ -43,9 +43,9 @@
       };
 
       character = {
-        success_symbol = "[➤ ](bold default)";
-        error_symbol = "[➤ ](bold red)";
-        vimcmd_symbol = "[❮ ](bold green)";
+        success_symbol = "[➤](bold default)";
+        error_symbol = "[➤](bold red)";
+        vimcmd_symbol = "[❮](bold green)";
       };
 
       git_branch = {
