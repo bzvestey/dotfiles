@@ -15,6 +15,7 @@
     ../../modules/home/k9s.nix
     ../../modules/home/plasma.nix
     ../../modules/home/ssh.nix
+    ../../modules/home/starship.nix
     ../../modules/home/vscode.nix
     ../../modules/home/yazi.nix
     ../../modules/home/zed.nix

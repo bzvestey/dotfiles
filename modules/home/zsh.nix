@@ -21,7 +21,7 @@
     oh-my-zsh = {
       enable = true;
       custom = "${../../dotfiles/zsh/custom}";
-      theme = "bzvestey";
+      theme = "";
       plugins = [
         "1password"
         "ansible"

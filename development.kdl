@@ -15,12 +15,8 @@ layout {
 
     tab name="AI" {
         pane split_direction="horizontal" {
-            pane name="Agent" {
-                command "antigravity"
-            }
-            pane name="Shell" {
-                command "zsh"
-            }
+            pane cwd="." name="Agent"
+            pane cwd="." name="Shell"
         }
     }
 }
