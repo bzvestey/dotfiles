@@ -1,4 +1,5 @@
 {
+  pkgs,
   ...
 }:
 
@@ -8,29 +9,37 @@
     enable = true;
     enableZshIntegration = true;
 
+    extraPackages = [
+      pkgs.jj-starship
+    ];
+
     settings = {
       add_newline = false;
 
-      format = "╭─$username$hostname$directory\n╰─$character";
-      right_format = "$git_branch$git_status";
+      format = "╭─$username$hostname$directory\n├─\${custom.jj}\n╰─$character";
+      right_format = "";
 
       username = {
         show_always = true;
-        style_user = "bold magenta";
+        style_user = "bold cyan";
         style_root = "bold red";
         format = "[$user]($style)";
       };
 
       hostname = {
         ssh_only = false;
-        style = "bold magenta";
+        style = "bold blue";
         format = ":[$hostname]($style) ";
       };
 
       directory = {
-        format = "[\\[](bold red)[$path](bold blue)[\\]](bold red) ";
-        truncation_length = 8;
+        format = "[\\[](bold red)[$path][\\]](bold red) ";
+        truncation_length = 24;
+        truncate_to_repo = false;
         truncation_symbol = ".../";
+        repo_root_style = "bold cyan";
+        before_repo_root_style = "bold blue";
+        style = "bold cyan";
       };
 
       character = {
@@ -40,12 +49,14 @@
       };
 
       git_branch = {
+        disabled = true;
         symbol = "";
         style = "bold yellow";
         format = "[‹](bold yellow)[$symbol$branch]($style)";
       };
 
       git_status = {
+        disabled = true;
         style = "bold red";
         format = "[$all_status]($style)[›](bold yellow)";
         conflicted = " =";
@@ -58,6 +69,14 @@
         staged = " +";
         renamed = " »";
         deleted = " ✘";
+      };
+
+      custom = {
+        jj = {
+          when = "jj-starship detect";
+          shell = "jj-starship";
+          format = "$output";
+        };
       };
     };
   };

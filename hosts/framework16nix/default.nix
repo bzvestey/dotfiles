@@ -46,7 +46,7 @@
 
     # Include nix program configurations
     ../../modules/nix/programs/1password.nix
-    ../../modules/nix/programs/3dprinting.nix
+    # ../../modules/nix/programs/3dprinting.nix
     ../../modules/nix/programs/ai.nix
     ../../modules/nix/programs/browsers.nix
     ../../modules/nix/programs/core.nix
@@ -62,7 +62,7 @@
     ../../modules/nixos/programs/core.nix
     ../../modules/nixos/programs/programming.nix
     ../../modules/nixos/programs/terminal.nix
-    ../../modules/nixos/programs/games.nix
+    # ../../modules/nixos/programs/games.nix
   ];
 
   boot.initrd.luks.devices."luks-f8c54aa1-9fa7-41ca-bc09-cacb852ad36b".device =
