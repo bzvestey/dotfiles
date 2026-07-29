@@ -33,7 +33,6 @@
       };
 
       directory = {
-        format = "[$path]";
         truncation_length = 24;
         truncate_to_repo = false;
         truncation_symbol = ".../";
