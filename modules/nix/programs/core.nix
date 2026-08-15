@@ -19,11 +19,11 @@
     # Running commands
     just
 
-    # EPub/lcpl reader
-    thorium-reader
-
     # Utilites for working with devices
     pciutils
     usbutils
+
+    # System utilities
+    dust
   ];
 }

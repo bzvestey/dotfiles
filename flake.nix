@@ -188,9 +188,8 @@
             zellij
 
             # AI tools
-            opencode
-            claude-code
             antigravity-cli
+            amp-cli
           ];
           shellHook = ''
             echo "Welcome to your Nix development environment!"
@@ -217,8 +216,8 @@
             zellij
 
             # AI tools
-            opencode
-            claude-code
+            antigravity-cli
+            amp-cli
           ];
           shellHook = ''
             echo "Welcome to your macOS Nix development environment!"

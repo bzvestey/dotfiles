@@ -9,6 +9,8 @@
 
     # Program configurations
     ../../modules/home/atuin.nix
+    ../../modules/home/bottom.nix
+    ../../modules/home/eza.nix
     ../../modules/home/ghostty.nix
     ../../modules/home/git.nix
     ../../modules/home/jujutsu.nix
@@ -19,6 +21,7 @@
     ../../modules/home/vscode.nix
     ../../modules/home/yazi.nix
     ../../modules/home/zed.nix
+    ../../modules/home/zoxide.nix
     ../../modules/home/zsh.nix
   ];
 
