@@ -18,7 +18,7 @@ in
 
     home = lib.mkOption {
       type = lib.types.str;
-      default = if pkgs.stdenv.isDarwin then "/Users/bzvestey" else "/home/bzvestey";
+      default = if pkgs.stdenv.hostPlatform.isDarwin then "/Users/bzvestey" else "/home/bzvestey";
       description = "The home directory for the primary user account.";
     };
 

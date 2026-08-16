@@ -42,11 +42,11 @@ in
     };
   };
 
-  networking.firewall.allowedTCPPorts = lib.mkIf (!pkgs.stdenv.isDarwin) [
+  networking.firewall.allowedTCPPorts = [
     8384
     22000
   ];
-  networking.firewall.allowedUDPPorts = lib.mkIf (!pkgs.stdenv.isDarwin) [
+  networking.firewall.allowedUDPPorts = [
     22000
     21027
   ];

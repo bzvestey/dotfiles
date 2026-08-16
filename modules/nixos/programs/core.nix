@@ -8,5 +8,5 @@
   };
 
   # Update firmware for laptop (Linux-only)
-  services.fwupd.enable = lib.mkIf (!pkgs.stdenv.isDarwin) true;
+  services.fwupd.enable = true;
 }
