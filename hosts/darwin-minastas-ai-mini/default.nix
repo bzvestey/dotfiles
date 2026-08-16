@@ -1,4 +1,5 @@
 {
+  config,
   pkgs,
   inputs,
   ...
@@ -46,7 +47,7 @@
     darwin-rebuild
   ];
 
-  users.users.bzvestey.home = /Users/bzvestey;
+  home-manager.users.${config.myConfig.user.name} = import ./home.nix;
 
   # Set Git commit hash for darwin-version.
   system.configurationRevision = inputs.self.rev or inputs.self.dirtyRev or null;

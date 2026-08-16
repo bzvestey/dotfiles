@@ -4,32 +4,8 @@
 
 {
   imports = [
-    # Core home-manager configuration
-    ../../modules/home/core.nix
-
-    # Program configurations
-    ../../modules/home/atuin.nix
-    ../../modules/home/bottom.nix
-    ../../modules/home/eza.nix
-    ../../modules/home/ghostty.nix
-    ../../modules/home/git.nix
-    ../../modules/home/jujutsu.nix
-    ../../modules/home/k9s.nix
+    ../../modules/home/common.nix
+    ../../modules/home/linux-desktop.nix
     ../../modules/home/plasma.nix
-    ../../modules/home/ssh.nix
-    ../../modules/home/starship.nix
-    ../../modules/home/vscode.nix
-    ../../modules/home/yazi.nix
-    ../../modules/home/zed.nix
-    ../../modules/home/zoxide.nix
-    ../../modules/home/zsh.nix
   ];
-
-  # Per-host user identity.
-  local.user = {
-    username = "bzvestey";
-    homeDirectory = "/home/bzvestey";
-    fullName = "Bryan Vestey";
-    email = "bryan@vestey.dev";
-  };
 }

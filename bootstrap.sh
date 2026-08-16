@@ -155,8 +155,16 @@ elif [ "$choice" == "2" ]; then
     # Include the results of the hardware scan.
     ./hardware.nix
 
-    # Import core modules
+    # Import shared Nix modules.
+    ../../modules/nix/core/base.nix
+    ../../modules/nix/core/time.nix
+    ../../modules/nix/core/secrets.nix
+    ../../modules/nix/core/users.nix
+
+    # Import shared NixOS modules.
     ../../modules/nixos/core/base.nix
+    ../../modules/nixos/core/locale.nix
+    ../../modules/nixos/core/networking.nix
     ../../modules/nixos/core/users.nix
 
     # Add other modules here (e.g. desktop environment, services)
@@ -164,7 +172,22 @@ elif [ "$choice" == "2" ]; then
 
   networking.hostName = "$hostname";
 
+  # Override myConfig.user here when this host needs a different identity.
+  home-manager.users.\${config.myConfig.user.name} = import ./home.nix;
+
   system.stateVersion = "$STATE_VERSION";
+}
+EOF
+
+        cat > "hosts/$hostname/home.nix" <<'EOF'
+_:
+
+{
+  imports = [
+    ../../modules/home/common.nix
+
+    # Add host-specific Home Manager modules here.
+  ];
 }
 EOF
 
@@ -178,18 +201,24 @@ EOF
         echo ""
         echo "      $hostname = nixpkgs.lib.nixosSystem {"
         echo "        system = linuxSystem;"
-        echo "        specialArgs = { inherit inputs; };"
+        echo "        specialArgs = { inherit inputs self; };"
         echo "        modules = ["
-        echo "          { nixpkgs.overlays = [ localpkgs.overlays.default ]; }"
+        echo "          {"
+        echo "            nixpkgs.overlays = ["
+        echo "              localpkgs.overlays.default"
+        echo "              llm-agents.overlays.shared-nixpkgs"
+        echo "            ];"
+        echo "          }"
         echo "          ./hosts/$hostname/default.nix"
         echo "          agenix.nixosModules.default"
         echo "          home-manager.nixosModules.home-manager"
         echo "          {"
-        echo "            home-manager.useGlobalPkgs = true;"
-        echo "            home-manager.useUserPackages = true;"
-        echo "            home-manager.backupFileExtension = \"backup\";"
-        echo "            home-manager.users.\${homeManagerUser} = homeManagerConfig;"
-        echo "            home-manager.extraSpecialArgs = { inherit inputs; };"
+        echo "            home-manager = {"
+        echo "              useGlobalPkgs = true;"
+        echo "              useUserPackages = true;"
+        echo "              backupFileExtension = \"backup\";"
+        echo "              extraSpecialArgs = { inherit inputs; };"
+        echo "            };"
         echo "          }"
         echo "        ];"
         echo "      };"
@@ -205,28 +234,39 @@ EOF
 { config, pkgs, inputs, ... }:
 
 {
-  # List packages installed in system profile. To search by name, run:
-  # \$ nix-env -qaP | grep wget
+  imports = [
+    ../../modules/nix/core/base.nix
+    ../../modules/nix/core/time.nix
+    ../../modules/nix/core/users.nix
+    ../../modules/nix/core/secrets.nix
+    ../../modules/nix-darwin/core/settings.nix
+    ../../modules/nix-darwin/core/users.nix
+    ../../modules/nix-darwin/homebrew/core.nix
+  ];
+
   environment.systemPackages = with pkgs; [
     vim
     git
   ];
 
-  # Nix settings
-  nix.settings.experimental-features = "nix-command flakes";
+  # Override myConfig.user here when this host needs a different identity.
+  home-manager.users.\${config.myConfig.user.name} = import ./home.nix;
 
-  # Auto upgrade nix package and the daemon service.
-  services.nix-daemon.enable = true;
-
-  # Set Git commit hash for darwin-version.
   system.configurationRevision = inputs.self.rev or inputs.self.dirtyRev or null;
-
-  # Used for backwards compatibility, please read the changelog before changing.
-  # \$ darwin-rebuild changelog
   system.stateVersion = 5;
-
-  # The platform the configuration will be used on.
   nixpkgs.hostPlatform = "aarch64-darwin";
+}
+EOF
+
+        cat > "hosts/$hostname/home.nix" <<'EOF'
+_:
+
+{
+  imports = [
+    ../../modules/home/common.nix
+
+    # Add host-specific Home Manager modules here.
+  ];
 }
 EOF
 
@@ -240,16 +280,25 @@ EOF
         echo ""
         echo "      $hostname = nix-darwin.lib.darwinSystem {"
         echo "        system = darwinSystem;"
-        echo "        specialArgs = { inherit inputs; };"
+        echo "        specialArgs = { inherit inputs self; };"
         echo "        modules = ["
-        echo "          { nixpkgs.overlays = [ localpkgs.overlays.default ]; }"
+        echo "          {"
+        echo "            nixpkgs.overlays = ["
+        echo "              localpkgs.overlays.default"
+        echo "              llm-agents.overlays.shared-nixpkgs"
+        echo "              nix-darwin.overlays.default"
+        echo "            ];"
+        echo "          }"
         echo "          ./hosts/$hostname/default.nix"
+        echo "          agenix.darwinModules.default"
         echo "          home-manager.darwinModules.home-manager"
         echo "          {"
-        echo "            home-manager.useGlobalPkgs = true;"
-        echo "            home-manager.useUserPackages = true;"
-        echo "            home-manager.users.\${homeManagerUser} = homeManagerConfig;"
-        echo "            home-manager.extraSpecialArgs = { inherit inputs; };"
+        echo "            home-manager = {"
+        echo "              useGlobalPkgs = true;"
+        echo "              useUserPackages = true;"
+        echo "              backupFileExtension = \"backup\";"
+        echo "              extraSpecialArgs = { inherit inputs; };"
+        echo "            };"
         echo "          }"
         echo "        ];"
         echo "      };"

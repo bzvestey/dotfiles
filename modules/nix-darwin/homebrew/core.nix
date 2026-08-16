@@ -1,7 +1,6 @@
 {
   config,
   inputs,
-  primaryUser,
   ...
 }:
 
@@ -15,7 +14,7 @@
     enable = true;
 
     # User owning the Homebrew prefix
-    user = primaryUser;
+    user = config.myConfig.user.name;
 
     # Automatically migrate existing Homebrew installations
     autoMigrate = true;
@@ -23,7 +22,7 @@
     # Declarative tap management
     taps = {
       "homebrew/homebrew-core" = inputs.homebrew-core;
-      "homebrew/homebrew-cask" = inputs;
+      "homebrew/homebrew-cask" = inputs.homebrew-cask;
     };
 
     # Enable fully-declarative tap management.

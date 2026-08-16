@@ -1,4 +1,5 @@
 {
+  config,
   pkgs,
   inputs,
   ...
@@ -67,7 +68,9 @@
 
   boot.initrd.luks.devices."luks-f8c54aa1-9fa7-41ca-bc09-cacb852ad36b".device =
     "/dev/disk/by-uuid/f8c54aa1-9fa7-41ca-bc09-cacb852ad36b";
-  networking.hostName = "framework_16_nix";
+  networking.hostName = "framework16nix";
+
+  home-manager.users.${config.myConfig.user.name} = import ./home.nix;
 
   environment.systemPackages = [
     pkgs.localpkgs.hakuneko-nightly

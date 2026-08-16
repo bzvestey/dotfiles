@@ -1,11 +1,11 @@
-{ config, primaryUser, ... }:
+{ config, ... }:
 
 {
   system.primaryUser = config.myConfig.user.name;
-  users.users.${primaryUser}.environment.systemPath = [
+  environment.systemPath = [
     "/opt/homebrew/bin"
   ];
-  users.users.${primaryUser}.environment.pathsToLink = [
+  environment.pathsToLink = [
     "/Applications"
   ];
 }

@@ -1,5 +1,5 @@
 {
-  config,
+  osConfig,
   ...
 }:
 
@@ -8,8 +8,8 @@
     enable = true;
     settings = {
       user = {
-        name = config.local.user.fullName;
-        email = config.local.user.email;
+        name = osConfig.myConfig.user.displayName;
+        email = osConfig.myConfig.user.email;
       };
     };
   };

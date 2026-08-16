@@ -3,9 +3,9 @@
 {
   environment.systemPackages = with pkgs.llm-agents; [
     # Coding tools
-    claude-code
     antigravity-cli
-    opencode
+    codex
+    amp
 
     # Agents
     zeroclaw

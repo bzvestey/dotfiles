@@ -64,6 +64,8 @@
 
   networking.hostName = "framework13nix";
 
+  home-manager.users.${config.myConfig.user.name} = import ./home.nix;
+
   environment.systemPackages = [
     pkgs.localpkgs.hakuneko-nightly
   ];

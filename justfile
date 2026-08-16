@@ -3,6 +3,11 @@ update:
     nix flake update
     just sync-backgrounds
 
+# Evaluate every supported system and check source formatting
+check:
+    nix flake check path:. --all-systems --no-build
+    nixfmt --check $(find . -path './.direnv' -prune -o -type f -name '*.nix' -print)
+
 # Sync backgrounds from samba share
 sync-backgrounds:
     #!/usr/bin/env bash

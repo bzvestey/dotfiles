@@ -77,10 +77,6 @@
       linuxSystem = "x86_64-linux";
       darwinSystem = "aarch64-darwin";
 
-      # Common home manager configuration. Each host imports its own home.nix,
-      # which selects the home-manager modules it wants and sets the per-host
-      # user identity (username, home directory, full name, email).
-      homeManagerUser = "bzvestey";
     in
     {
       # NixOS Configurations (Linux)
@@ -102,11 +98,12 @@
           # Import the Home Manager NixOS module
           home-manager.nixosModules.home-manager
           {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.backupFileExtension = "backup";
-            home-manager.extraSpecialArgs = { inherit inputs; };
-            home-manager.users.${homeManagerUser} = import ./hosts/framework16nix/home.nix;
+            home-manager = {
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              backupFileExtension = "backup";
+              extraSpecialArgs = { inherit inputs; };
+            };
           }
         ];
       };
@@ -125,11 +122,12 @@
           agenix.nixosModules.default
           home-manager.nixosModules.home-manager
           {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.backupFileExtension = "backup";
-            home-manager.extraSpecialArgs = { inherit inputs; };
-            home-manager.users.${homeManagerUser} = import ./hosts/framework13nix/home.nix;
+            home-manager = {
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              backupFileExtension = "backup";
+              extraSpecialArgs = { inherit inputs; };
+            };
           }
         ];
       };
@@ -147,18 +145,20 @@
             ];
           }
           ./hosts/darwin-minastas-ai-mini/default.nix
-          agenix.nixosModules.default
-          nix-homebrew.darwinModules.nix-homebrew
+          agenix.darwinModules.default
           home-manager.darwinModules.home-manager
           {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.backupFileExtension = "backup";
-            home-manager.users.${homeManagerUser} = import ./hosts/darwin-minastas-ai-mini/home.nix;
-            home-manager.extraSpecialArgs = { inherit inputs; };
+            home-manager = {
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              backupFileExtension = "backup";
+              extraSpecialArgs = { inherit inputs; };
+            };
           }
         ];
       };
+
+      checks.${darwinSystem}.darwin-configuration = self.darwinConfigurations.minastas-ai-mini.system;
 
       # Expose the darwin configuration for standalone use
       darwinPackages.${darwinSystem} = self.darwinConfigurations.minastas-ai-mini.pkgs;

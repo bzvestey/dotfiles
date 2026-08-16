@@ -18,6 +18,7 @@
     # Cloud services
     awscli2
     garage_2
+    forgejo-cli
 
     # Editors
     zed-editor
@@ -27,6 +28,7 @@
     jq
     k9s
     devenv
+    zellij
 
     dive # look into docker image layers
     podman-tui # status of containers in the terminal
