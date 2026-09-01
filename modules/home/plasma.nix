@@ -43,6 +43,11 @@ in
     # Always boot into a clean session instead of reopening last session's windows.
     session.sessionRestore.restoreOpenApplicationsOnLogin = "startWithEmptySession";
 
+    krunner = {
+      position = "center";
+      shortcuts.launch = "Meta+Space";
+    };
+
     kwin = {
       virtualDesktops = {
         rows = 1;
