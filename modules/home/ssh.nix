@@ -10,6 +10,10 @@
       "*" = {
         addKeysToAgent = "yes";
       };
+      "knot.minastas.xyz" = {
+        "HostName" = "knot-ssh.tailbc181.ts.net";
+        "User" = "git";
+      };
     };
   };
 }
