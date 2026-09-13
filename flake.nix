@@ -31,7 +31,7 @@
     };
 
     localpkgs = {
-      url = "github:bzvestey/dotfiles?dir=packages";
+      url = "https://tangled.org/bzvestey.minastas.social/nix-custom-packages/archive/main.tar.gz";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
