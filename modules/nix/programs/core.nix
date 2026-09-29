@@ -22,6 +22,9 @@
     # Utilites for working with devices
     pciutils
     usbutils
+    nvme-cli
+    smartmontools
+    psmisc
 
     # System utilities
     dust

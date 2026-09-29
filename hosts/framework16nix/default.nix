@@ -49,6 +49,7 @@
     ../../modules/nix/programs/1password.nix
     # ../../modules/nix/programs/3dprinting.nix
     ../../modules/nix/programs/ai.nix
+    ../../modules/nix/programs/ai-agents.nix
     ../../modules/nix/programs/browsers.nix
     ../../modules/nix/programs/core.nix
     ../../modules/nix/programs/files.nix

@@ -197,6 +197,8 @@ in
 
     # Assorted settings with no dedicated plasma-manager option.
     configFile = {
+      # Keep filename search, but do not index file contents.
+      baloofilerc.General."only basic indexing" = true;
       # Default web browser.
       kdeglobals."General".BrowserApplication = "vivaldi-stable.desktop";
       # Hide Dolphin's menu bar (hamburger menu instead).

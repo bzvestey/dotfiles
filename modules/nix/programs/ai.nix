@@ -6,9 +6,6 @@
     antigravity-cli
     codex
     amp
-
-    # Agents
-    zeroclaw
   ];
 
   nix.settings.extra-substituters = [ "https://cache.numtide.com" ];
