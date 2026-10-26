@@ -26,11 +26,6 @@ in
         };
       };
       folders = {
-        "yv9ej-sr6dr" = {
-          label = "proton";
-          path = "${userHome}/proton";
-          devices = [ "truenas" ];
-        };
         "6bvaa-syglg" = {
           label = "manga";
           path = "${userHome}/Documents/Manga";
