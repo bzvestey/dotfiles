@@ -15,7 +15,5 @@
     hermes-agent
     hermes-desktop
     hermes-hud
-
-    zeroclaw
   ];
 }
