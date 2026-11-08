@@ -15,14 +15,14 @@
   # Note: check https://github.com/NixOS/nixos-hardware/blob/master/framework/16-inch/amd-ai-300-series/nvidia/default.nix for better settings at some point
 
   hardware.nvidia = {
-    open = false; # The propietary drivers have stabler power management support for multi-gpu setups.
+    # The RTX 5070 (Blackwell) requires NVIDIA's open kernel modules.
+    open = true;
     package = config.boot.kernelPackages.nvidiaPackages.stable;
 
     modesetting.enable = true;
     nvidiaSettings = true;
 
-    # Hybrid graphics with PRIME offload for better battery life
-    # AMD iGPU by default, NVIDIA dGPU on demand via nvidia-offload command
+    # Preserve PRIME sync rather than on-demand render offloading.
     prime = {
       sync.enable = true;
       offload.enable = false;

@@ -197,6 +197,8 @@ in
 
     # Assorted settings with no dedicated plasma-manager option.
     configFile = {
+      # Show fingerprint authentication alongside password unlocking.
+      kscreenlockerrc.Authenticators.Fingerprint = true;
       # Keep filename search, but do not index file contents.
       baloofilerc.General."only basic indexing" = true;
       # Default web browser.
