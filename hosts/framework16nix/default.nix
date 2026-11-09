@@ -71,6 +71,19 @@
     "/dev/disk/by-uuid/f8c54aa1-9fa7-41ca-bc09-cacb852ad36b";
   networking.hostName = "framework16nix";
 
+  fileSystems."${config.myConfig.user.home}/backup" = {
+    device = "minastas-data.tailbc181.ts.net:/volume1/Backup";
+    fsType = "nfs";
+    options = [
+      "_netdev"
+      "noauto"
+      "nofail"
+      "x-systemd.automount"
+      "x-systemd.idle-timeout=60"
+      "x-systemd.mount-timeout=10s"
+    ];
+  };
+
   home-manager.users.${config.myConfig.user.name} = import ./home.nix;
 
   environment.systemPackages = [
