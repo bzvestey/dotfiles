@@ -9,6 +9,9 @@
   services.displayManager.sddm.wayland.enable = true;
   services.desktopManager.plasma6.enable = true;
 
+  # Let fingerprint timeouts finish instead of waiting for a hidden password prompt.
+  security.pam.services.kde-fingerprint.unixAuth = false;
+
   environment.systemPackages = with pkgs; [
     # KDE Utilities
     kdePackages.discover # Software center for Flatpaks/firmware updates
