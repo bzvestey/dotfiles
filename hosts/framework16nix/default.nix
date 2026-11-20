@@ -40,6 +40,7 @@
     ../../modules/nixos/display/plasma.nix
 
     # Include services configurations
+    ../../modules/nixos/services/amp-runner.nix
     ../../modules/nixos/services/tailscale.nix
     ../../modules/nixos/services/syncthing.nix
     ../../modules/nixos/services/flatpak.nix
