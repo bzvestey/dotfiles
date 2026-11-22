@@ -21,7 +21,7 @@ in
 
     Service = {
       WorkingDirectory = "${userHome}/dev";
-      ExecStart = "${lib.getExe pkgs.llm-agents.amp} --no-tui --runner-id ${config.networking.hostName} --remote-control-terminal";
+      ExecStart = "${lib.getExe pkgs.llm-agents.amp} --no-tui --runner-id ${config.networking.hostName} --remote-control-terminal --amp-env --share-network --remote-control-portals --discover-dirs";
       # systemd user services get a minimal PATH; give threads the same tools as a login shell.
       Environment = [
         "PATH=/run/wrappers/bin:/etc/profiles/per-user/${userName}/bin:${userHome}/.nix-profile/bin:/nix/var/nix/profiles/default/bin:/run/current-system/sw/bin"
