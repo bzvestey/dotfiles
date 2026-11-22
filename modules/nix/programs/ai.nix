@@ -6,6 +6,7 @@
     antigravity-cli
     codex
     amp
+    amp-desktop
   ];
 
   nix.settings.extra-substituters = [ "https://cache.numtide.com" ];
