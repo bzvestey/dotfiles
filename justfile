@@ -3,6 +3,10 @@ update:
     nix flake update
     just sync-backgrounds
 
+# Update only the llm-agents flake input
+update-llm-agents:
+    nix flake update llm-agents
+
 # Evaluate every supported system and check source formatting
 check:
     nix flake check path:. --all-systems --no-build
